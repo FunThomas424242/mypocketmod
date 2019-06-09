@@ -10,12 +10,12 @@ package com.github.funthomas424242.pdf2pocketmod;
  * it under the terms of the GNU Lesser General Public License as
  * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Lesser Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Lesser Public
  * License along with this program.  If not, see
  * <http://www.gnu.org/licenses/lgpl-3.0.html>.
@@ -96,16 +96,44 @@ public class Configuration {
         }
     }
 
-    public String getPocketmodSourcedir(){
-        String dirName= configuration.getProperty(POCKETMOD_SOURCEDIR,"./");
-        if( dirName.endsWith(".")){
-            dirName=dirName+"/";
+    public String getPocketmodSourcedir() {
+        String dirName = configuration.getProperty(POCKETMOD_SOURCEDIR, "./");
+        if (dirName.endsWith(".")) {
+            dirName = dirName + "/";
         }
         return dirName;
     }
 
-    public String getPocketmodPage1Filename(){
-        return getPocketmodSourcedir()+configuration.getProperty(POCKETMOD_PAGE_1_FILENAME,SEITE_1_PDF);
+    public String getPocketmodPage1Filename() {
+        return getPocketmodSourcedir() + configuration.getProperty(POCKETMOD_PAGE_1_FILENAME, SEITE_1_PDF);
+    }
+
+    public String getPocketmodPage2Filename() {
+        return getPocketmodSourcedir() + configuration.getProperty(POCKETMOD_PAGE_2_FILENAME, SEITE_2_PDF);
+    }
+
+    public String getPocketmodPage3Filename() {
+        return getPocketmodSourcedir() + configuration.getProperty(POCKETMOD_PAGE_3_FILENAME, SEITE_3_PDF);
+    }
+
+    public String getPocketmodPage4Filename() {
+        return getPocketmodSourcedir() + configuration.getProperty(POCKETMOD_PAGE_4_FILENAME, SEITE_4_PDF);
+    }
+
+    public String getPocketmodPage5Filename() {
+        return getPocketmodSourcedir() + configuration.getProperty(POCKETMOD_PAGE_5_FILENAME, SEITE_5_PDF);
+    }
+
+    public String getPocketmodPage6Filename() {
+        return getPocketmodSourcedir() + configuration.getProperty(POCKETMOD_PAGE_6_FILENAME, SEITE_6_PDF);
+    }
+
+    public String getPocketmodPage7Filename() {
+        return getPocketmodSourcedir() + configuration.getProperty(POCKETMOD_PAGE_7_FILENAME, SEITE_7_PDF);
+    }
+
+    public String getPocketmodPage8Filename() {
+        return getPocketmodSourcedir() + configuration.getProperty(POCKETMOD_PAGE_8_FILENAME, SEITE_8_PDF);
     }
 
 
