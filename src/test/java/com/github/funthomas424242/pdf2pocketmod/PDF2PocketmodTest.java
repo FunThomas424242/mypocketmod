@@ -23,8 +23,10 @@ package com.github.funthomas424242.pdf2pocketmod;
  */
 
 import com.lowagie.text.pdf.codec.Base64;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import sun.security.krb5.Config;
 
 import java.io.IOException;
 import java.nio.file.Paths;
@@ -873,7 +875,15 @@ class PDF2PocketmodTest {
             "KKAP/9k=";
 
 
+    static Configuration configuration;
+
     PDF2Pocketmod app;
+
+
+    @BeforeAll
+    static void  setUpTestsuite(){
+        configuration = new Configuration();
+    }
 
     @BeforeEach
     void initialisiereTestfall(){
@@ -896,15 +906,23 @@ class PDF2PocketmodTest {
 
 
 
-        final byte[] image1 = app.getPDFPageAsBytes(Paths.get("/home/huluvu/git/pdf2pocketmod/src/test/resources/Seite1.pdf"));
+        final byte[] image1 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage1Filename()));
         assertNotNull(image1);
         assertEquals(IMAGE1_BASE64, Base64.encodeBytes(image1));
-        final byte[] image2 = app.getPDFPageAsBytes(Paths.get("/home/huluvu/git/pdf2pocketmod/src/test/resources/Seite2.pdf"));
+        final byte[] image2 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage2Filename()));
         assertNotNull(image2);
-        final byte[] image3 = app.getPDFPageAsBytes(Paths.get("/home/huluvu/git/pdf2pocketmod/src/test/resources/Seite3.pdf"));
+        final byte[] image3 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage3Filename()));
         assertNotNull(image3);
-        final byte[] image4 = app.getPDFPageAsBytes(Paths.get("/home/huluvu/git/pdf2pocketmod/src/test/resources/Seite4.pdf"));
+        final byte[] image4 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage4Filename()));
         assertNotNull(image4);
+        final byte[] image5 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage5Filename()));
+        assertNotNull(image5);
+        final byte[] image6 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage6Filename()));
+        assertNotNull(image6);
+        final byte[] image7 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage7Filename()));
+        assertNotNull(image7);
+        final byte[] image8 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage8Filename()));
+        assertNotNull(image8);
 
     }
 
