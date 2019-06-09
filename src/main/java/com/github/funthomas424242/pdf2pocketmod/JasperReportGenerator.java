@@ -30,14 +30,23 @@ import java.util.HashMap;
 
 public class JasperReportGenerator {
 
+    final protected Configuration configuration;
+
+
     public static void main(String[] args) throws JRException, IOException {
         final JasperReportGenerator report = new JasperReportGenerator();
         report.run();
     }
 
+    public JasperReportGenerator() {
+        configuration = new Configuration();
+    }
+
     public void run() throws JRException, IOException {
+
+
         final PDF2Pocketmod app = new PDF2Pocketmod();
-        final byte[] image1 = app.getPDFPageAsBytes(Paths.get("/home/huluvu/git/pdf2pocketmod/src/test/resources/Seite1.pdf"));
+        final byte[] image1 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage1Filename()));
         final byte[] image2 = app.getPDFPageAsBytes(Paths.get("/home/huluvu/git/pdf2pocketmod/src/test/resources/Seite2.pdf"));
         final byte[] image3 = app.getPDFPageAsBytes(Paths.get("/home/huluvu/git/pdf2pocketmod/src/test/resources/Seite3.pdf"));
         final byte[] image4 = app.getPDFPageAsBytes(Paths.get("/home/huluvu/git/pdf2pocketmod/src/test/resources/Seite4.pdf"));
@@ -64,7 +73,7 @@ public class JasperReportGenerator {
                 JasperCompileManager.compileReport(filePath);
         final JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameter, new JREmptyDataSource());
         JasperExportManager.exportReportToPdfFile(jasperPrint,
-                Paths.get(".","/generated/src/test/resources/Pocketmod.pdf").toAbsolutePath().toString());
+                Paths.get(".", "/generated/src/test/resources/Pocketmod.pdf").toAbsolutePath().toString());
     }
 
 }
