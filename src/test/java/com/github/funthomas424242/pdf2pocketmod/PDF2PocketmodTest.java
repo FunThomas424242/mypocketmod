@@ -26,6 +26,7 @@ import com.lowagie.text.pdf.codec.Base64;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
 import java.nio.file.Paths;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -877,6 +878,17 @@ class PDF2PocketmodTest {
     @BeforeEach
     void initialisiereTestfall(){
         app= new PDF2Pocketmod();
+        Paths.get(".","/generated/src/test/resources/").toFile().mkdirs();
+    }
+
+    @Test
+    void testRun(){
+        try {
+            app.run();
+        } catch (IOException e) {
+            e.printStackTrace();
+            fail();
+        }
     }
 
     @Test
