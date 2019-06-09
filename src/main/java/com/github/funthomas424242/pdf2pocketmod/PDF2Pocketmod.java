@@ -66,6 +66,12 @@ public class PDF2Pocketmod {
 
     }
 
+    public byte[] getPDFPageAsBytes(final Path absoluteFilePath) throws IOException {
+        final PDDocument seite = loadPage(absoluteFilePath);
+        final BufferedImage image = getPDFAsImageBytes(seite);
+        return convertImage2Bytes(image);
+    }
+
     protected PDImageXObject getPDFPageAsImage(PDDocument pocketmodPdf, int pageNum) throws IOException {
         final PDDocument seite = loadPage(Paths.get(".", "/src/test/java/com/github/funthomas424242/pdf2pocketmod/"), "Seite", "pdf", pageNum);
         final BufferedImage image = getPDFAsImageBytes(seite);
@@ -97,8 +103,12 @@ public class PDF2Pocketmod {
 
 
     protected PDDocument loadPage(final Path folder, String filePrefix, String fileExtension, int pageNum) throws IOException {
+        return loadPage(Paths.get(folder.toAbsolutePath().toString(), filePrefix + pageNum + "." + fileExtension));
+    }
+
+    protected PDDocument loadPage(final Path absoluteFilePath) throws IOException {
         //Loading page x
-        final File seite1 = Paths.get(folder.toAbsolutePath().toString(), filePrefix + pageNum + "." + fileExtension).toFile();
+        final File seite1 = absoluteFilePath.toFile();
         System.out.println(seite1.getAbsolutePath());
         return PDDocument.load(seite1);
     }
