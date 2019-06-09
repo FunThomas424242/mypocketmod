@@ -45,48 +45,18 @@ public class PDF2Pocketmod {
 
     public void run() throws IOException {
         final PDDocument pocketmodPdf = new PDDocument();
-        final PDPage page = new PDPage();
-        pocketmodPdf.addPage( page );
-
-        final PDDocument doc1 = loadPage( Paths.get(".","/src/test/java/com/github/funthomas424242/pdf2pocketmod/"), "Seite", "pdf", 1);
-
-        //Instantiating the PDFRenderer class
-        final PDFRenderer renderer = new PDFRenderer(doc1);
-        //Rendering an image from the PDF document
-        final BufferedImage image = renderer.renderImage(0);
-        final ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ImageIO.write(image, "jpg", baos);
-        baos.flush();
-        byte[] bytes = baos.toByteArray();
-
-        //Writing the image to a file
-//        ImageIO.write(image, "JPEG", new File("/src/test/java/com/github/funthomas424242/pdf2pocketmod/Seite1.png"));
-
-
-        PDImageXObject pdImage = PDImageXObject.createFromByteArray(pocketmodPdf, bytes, "myImage Seite1");
-//        PDImageXObject pdImage = PDImageXObject.createFromFile("/src/test/java/com/github/funthomas424242/pdf2pocketmod/Seite1.png", doc);
-
-
-
-        System.out.println("Image created");
-
-//        pocketmodPdf.addPage(page1);
-
-
-        //Creating PDImageXObject object
-//        PDImageXObject pdImage = PDImageXObject.createFromFile("C:/PdfBox_Examples/logo.png", doc);
+        pocketmodPdf.addPage(new PDPage());
 
         //creating the PDPageContentStream object
-        PDPageContentStream contents = new PDPageContentStream(pocketmodPdf, page);
+        PDPageContentStream contents = new PDPageContentStream(pocketmodPdf, pocketmodPdf.getPage(0));
 
-        //Drawing the image in the PDF document
-        contents.drawImage(pdImage, 1, 1);
-//        contents.drawImage(pdImage, 70, 250);
-
-        System.out.println("Image inserted");
-
+        for (int pageNum = 1; pageNum < 3; pageNum++) {
+            final PDImageXObject seite = getPDFPageAsImage(pocketmodPdf, pageNum);
+            addImageToPage0(contents, seite);
+        }
         //Closing the PDPageContentStream object
         contents.close();
+
 
         //Saving the document
         pocketmodPdf.save("Pocketmod.pdf");
@@ -96,10 +66,39 @@ public class PDF2Pocketmod {
 
     }
 
+    protected PDImageXObject getPDFPageAsImage(PDDocument pocketmodPdf, int pageNum) throws IOException {
+        final PDDocument seite = loadPage(Paths.get(".", "/src/test/java/com/github/funthomas424242/pdf2pocketmod/"), "Seite", "pdf", pageNum);
+        final BufferedImage image = getPDFAsImageBytes(seite);
+        final byte[] bytes = convertImage2Bytes(image);
+        final PDImageXObject pdImage = PDImageXObject.createFromByteArray(pocketmodPdf, bytes, "myImage Seite" + pageNum);
+        System.out.println("Image created for page " + pageNum);
+        return pdImage;
+    }
+
+    protected void addImageToPage0(PDPageContentStream contents, PDImageXObject pdImage) throws IOException {
+        //Drawing the image in the PDF document
+        contents.drawImage(pdImage, 1, 1);
+        System.out.println("Image inserted");
+    }
+
+    protected byte[] convertImage2Bytes(final BufferedImage image) throws IOException {
+        final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ImageIO.write(image, "jpg", baos);
+        baos.flush();
+        return baos.toByteArray();
+    }
+
+    private BufferedImage getPDFAsImageBytes(PDDocument doc1) throws IOException {
+        //Instantiating the PDFRenderer class
+        final PDFRenderer renderer = new PDFRenderer(doc1);
+        //Rendering an image from the PDF document
+        return renderer.renderImage(0);
+    }
+
 
     protected PDDocument loadPage(final Path folder, String filePrefix, String fileExtension, int pageNum) throws IOException {
         //Loading page x
-        final File seite1 = Paths.get(folder.toAbsolutePath().toString(), filePrefix+pageNum+"."+fileExtension).toFile();
+        final File seite1 = Paths.get(folder.toAbsolutePath().toString(), filePrefix + pageNum + "." + fileExtension).toFile();
         System.out.println(seite1.getAbsolutePath());
         return PDDocument.load(seite1);
     }
