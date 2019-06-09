@@ -222,7 +222,7 @@
                 <version>2.3</version>
                 <executions>
                     <execution>
-                        <phase>process-sources</phase>
+                        <phase>compile</phase>
                         <goals>
                             <goal>jasper</goal>
                         </goals>
