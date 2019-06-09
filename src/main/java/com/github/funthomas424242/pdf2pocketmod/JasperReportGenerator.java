@@ -64,7 +64,7 @@ public class JasperReportGenerator {
                 JasperCompileManager.compileReport(filePath);
         final JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameter, new JREmptyDataSource());
         JasperExportManager.exportReportToPdfFile(jasperPrint,
-                Paths.get(".","/generated/src/test/resources/OutputJasperPocketmod.pdf").toAbsolutePath().toString());
+                Paths.get(".","/generated/src/test/resources/Pocketmod.pdf").toAbsolutePath().toString());
     }
 
 }
