@@ -189,6 +189,7 @@
                 <version>3.1.0</version>
                 <executions>
                     <execution>
+                        <id>clean-site</id>
                         <phase>pre-site</phase>
                         <goals>
                             <goal>clean</goal>
@@ -197,6 +198,21 @@
                             <filesets>
                                 <fileset>
                                     <directory>${basedir}/docs</directory>
+                                    <followSymlinks>false</followSymlinks>
+                                </fileset>
+                            </filesets>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>clean-test</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                        <configuration>
+                            <filesets>
+                                <fileset>
+                                    <directory>${basedir}/generated/</directory>
                                     <followSymlinks>false</followSymlinks>
                                 </fileset>
                             </filesets>
