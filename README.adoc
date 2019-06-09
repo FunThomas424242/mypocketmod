@@ -1,0 +1,7 @@
+== pdf2pocketmod
+Convert 8 pdf documents to 1 pocketmod page as pdf
+
+
+== Quellen
+
+* http://www.alexander-merz.com/42.html
