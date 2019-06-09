@@ -38,26 +38,26 @@ public class JasperReportGenerator {
     public void run() throws JRException, IOException {
         final PDF2Pocketmod app = new PDF2Pocketmod();
         final byte[] image1 = app.getPDFPageAsBytes(Paths.get("/home/huluvu/git/pdf2pocketmod/src/test/resources/Seite1.pdf"));
+        final byte[] image2 = app.getPDFPageAsBytes(Paths.get("/home/huluvu/git/pdf2pocketmod/src/test/resources/Seite2.pdf"));
+        final byte[] image3 = app.getPDFPageAsBytes(Paths.get("/home/huluvu/git/pdf2pocketmod/src/test/resources/Seite3.pdf"));
+        final byte[] image4 = app.getPDFPageAsBytes(Paths.get("/home/huluvu/git/pdf2pocketmod/src/test/resources/Seite4.pdf"));
+        final byte[] image5 = app.getPDFPageAsBytes(Paths.get("/home/huluvu/git/pdf2pocketmod/src/test/resources/Seite5.pdf"));
+        final byte[] image6 = app.getPDFPageAsBytes(Paths.get("/home/huluvu/git/pdf2pocketmod/src/test/resources/Seite6.pdf"));
+        final byte[] image7 = app.getPDFPageAsBytes(Paths.get("/home/huluvu/git/pdf2pocketmod/src/test/resources/Seite7.pdf"));
+        final byte[] image8 = app.getPDFPageAsBytes(Paths.get("/home/huluvu/git/pdf2pocketmod/src/test/resources/Seite8.pdf"));
 
 
         HashMap<String, Object> parameter =
                 new HashMap<>();
 
         parameter.put("imageSources", new ImageHolder(image1,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null));
-        parameter.put("ImageSrc2", "/home/huluvu/git/pdf2pocketmod/src/main/resources/flower1.png");
-        parameter.put("ImageSrc3", "/home/huluvu/git/pdf2pocketmod/src/main/resources/flower1.png");
-        parameter.put("ImageSrc4", "/home/huluvu/git/pdf2pocketmod/src/main/resources/flower1.png");
-        parameter.put("ImageSrc5", "/home/huluvu/git/pdf2pocketmod/src/main/resources/flower1.png");
-        parameter.put("ImageSrc6", "/home/huluvu/git/pdf2pocketmod/src/main/resources/flower1.png");
-        parameter.put("ImageSrc7", "/home/huluvu/git/pdf2pocketmod/src/main/resources/flower1.png");
-        parameter.put("ImageSrc8", "/home/huluvu/git/pdf2pocketmod/src/main/resources/flower1.png");
+                image2,
+                image3,
+                image4,
+                image5,
+                image6,
+                image7,
+                image8));
 
         final String filePath = Paths.get(".", "/src/main/resources/jrxml/Blank_A4.jrxml").toAbsolutePath().toString();
         final JasperReport jasperReport =
