@@ -24,21 +24,33 @@ package com.github.funthomas424242.pdf2pocketmod;
 
 import net.sf.jasperreports.engine.*;
 
+import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.HashMap;
 
 public class JasperReportGenerator {
 
-    public static void main(String[] args) throws JRException {
+    public static void main(String[] args) throws JRException, IOException {
         final JasperReportGenerator report = new JasperReportGenerator();
         report.run();
     }
 
-    public void run() throws JRException {
+    public void run() throws JRException, IOException {
+        final PDF2Pocketmod app = new PDF2Pocketmod();
+        final byte[] image1 = app.getPDFPageAsBytes(Paths.get("/home/huluvu/git/pdf2pocketmod/src/test/resources/Seite1.pdf"));
+
+
         HashMap<String, Object> parameter =
                 new HashMap<>();
 
-        parameter.put("ImageSrc1", "/home/huluvu/git/pdf2pocketmod/src/main/resources/flower1.png");
+        parameter.put("imageSources", new ImageHolder(image1,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null));
         parameter.put("ImageSrc2", "/home/huluvu/git/pdf2pocketmod/src/main/resources/flower1.png");
         parameter.put("ImageSrc3", "/home/huluvu/git/pdf2pocketmod/src/main/resources/flower1.png");
         parameter.put("ImageSrc4", "/home/huluvu/git/pdf2pocketmod/src/main/resources/flower1.png");
@@ -47,7 +59,7 @@ public class JasperReportGenerator {
         parameter.put("ImageSrc7", "/home/huluvu/git/pdf2pocketmod/src/main/resources/flower1.png");
         parameter.put("ImageSrc8", "/home/huluvu/git/pdf2pocketmod/src/main/resources/flower1.png");
 
-        final String filePath = Paths.get(".","/src/main/resources/jrxml/Blank_A4.jrxml").toAbsolutePath().toString();
+        final String filePath = Paths.get(".", "/src/main/resources/jrxml/Blank_A4.jrxml").toAbsolutePath().toString();
         final JasperReport jasperReport =
                 JasperCompileManager.compileReport(filePath);
         final JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameter, new JREmptyDataSource());

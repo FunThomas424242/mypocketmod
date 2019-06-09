@@ -10,7 +10,7 @@
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="850"/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
-	<parameter name="ImageSrc1" class="java.lang.String"/>
+	<parameter name="imageSources" class="com.github.funthomas424242.pdf2pocketmod.ImageHolder"/>
 	<parameter name="ImageSrc2" class="java.lang.String"/>
 	<parameter name="ImageSrc3" class="java.lang.String"/>
 	<parameter name="ImageSrc4" class="java.lang.String"/>
@@ -29,7 +29,7 @@
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<imageExpression><![CDATA[$P{ImageSrc1}]]></imageExpression>
+				<imageExpression><![CDATA[$P{imageSources}.getImage1Content()]]></imageExpression>
 			</image>
 			<image>
 				<reportElement x="0" y="211" width="285" height="208" uuid="657c14bd-7e6f-4b50-bd5f-66e2f5f34068">
