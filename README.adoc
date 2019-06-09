@@ -5,3 +5,5 @@ Convert 8 pdf documents to 1 pocketmod page as pdf
 == Quellen
 
 * http://www.alexander-merz.com/42.html
+* https://riptutorial.com/Download/jasper-reports-de.pdf
+* https://community.jaspersoft.com/documentation/tibco-jaspersoft-studio-user-guide/v630/getting-started-jaspersoft-studio
