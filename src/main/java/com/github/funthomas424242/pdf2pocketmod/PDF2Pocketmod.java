@@ -59,7 +59,7 @@ public class PDF2Pocketmod {
 
 
         //Saving the document
-        pocketmodPdf.save("Pocketmod.pdf");
+        pocketmodPdf.save(Paths.get(".","/generated/src/test/resources/OutputPocketmod.pdf").toAbsolutePath().toString());
 
         //Closing the document
         pocketmodPdf.close();
@@ -73,7 +73,7 @@ public class PDF2Pocketmod {
     }
 
     protected PDImageXObject getPDFPageAsImage(PDDocument pocketmodPdf, int pageNum) throws IOException {
-        final PDDocument seite = loadPage(Paths.get(".", "/src/test/java/com/github/funthomas424242/pdf2pocketmod/"), "Seite", "pdf", pageNum);
+        final PDDocument seite = loadPage(Paths.get(".", "/src/test/resources/"), "Seite", "pdf", pageNum);
         final BufferedImage image = getPDFAsImageBytes(seite);
         final byte[] bytes = convertImage2Bytes(image);
         final PDImageXObject pdImage = PDImageXObject.createFromByteArray(pocketmodPdf, bytes, "myImage Seite" + pageNum);
