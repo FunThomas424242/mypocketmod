@@ -25,6 +25,7 @@ package com.github.funthomas424242.pdf2pocketmod;
 import net.sf.jasperreports.engine.*;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Paths;
 import java.util.HashMap;
 
@@ -68,9 +69,11 @@ public class JasperReportGenerator {
                 image7,
                 image8));
 
-        final String filePath = Paths.get(".", "/src/main/resources/jrxml/Blank_A4.jrxml").toAbsolutePath().toString();
+        // nur so im JAR möglich ranzukommen
+        final InputStream inputStream = getClass().getResourceAsStream("/jrxml/Blank_A4.jrxml");
         final JasperReport jasperReport =
-                JasperCompileManager.compileReport(filePath);
+                JasperCompileManager.compileReport(inputStream);
+        // TODO Statt wie oben zu kompilieren, können wir auch gleich das Compiliat nutzen: Blank_A4.jasper
         final JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameter, new JREmptyDataSource());
         JasperExportManager.exportReportToPdfFile(jasperPrint,
                 Paths.get(".", "/generated/src/test/resources/Pocketmod.pdf").toAbsolutePath().toString());
