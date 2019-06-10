@@ -33,6 +33,7 @@ public class Configuration {
 
     public static final String POCKETMOD_SOURCEDIR = "pocketmod.sourcedir";
     public static final String POCKETMOD_TARGETDIR = "pocketmod.targetdir";
+    public static final String POCKETMOD_OUTPUT_FILENAME = "pocketmod.output.filename";
     public static final String POCKETMOD_PAGE_1_FILENAME = "pocketmod.page1.filename";
     public static final String POCKETMOD_PAGE_2_FILENAME = "pocketmod.page2.filename";
     public static final String POCKETMOD_PAGE_3_FILENAME = "pocketmod.page3.filename";
@@ -49,6 +50,7 @@ public class Configuration {
     public static final String SEITE_6_PDF = "Seite6.pdf";
     public static final String SEITE_7_PDF = "Seite7.pdf";
     public static final String SEITE_8_PDF = "Seite8.pdf";
+    public static final String POCKETMODE_PDF = "Pocketmod.pdf";
 
     final Properties configuration;
 
@@ -60,6 +62,7 @@ public class Configuration {
     protected void initialize() {
         configuration.setProperty(POCKETMOD_SOURCEDIR, Paths.get("./").toAbsolutePath().toString());
         configuration.setProperty(POCKETMOD_TARGETDIR, Paths.get("./").toAbsolutePath().toString());
+        configuration.setProperty(POCKETMOD_OUTPUT_FILENAME, POCKETMODE_PDF);
         configuration.setProperty(POCKETMOD_PAGE_1_FILENAME, SEITE_1_PDF);
         configuration.setProperty(POCKETMOD_PAGE_2_FILENAME, SEITE_2_PDF);
         configuration.setProperty(POCKETMOD_PAGE_3_FILENAME, SEITE_3_PDF);
@@ -104,6 +107,15 @@ public class Configuration {
         return dirName;
     }
 
+    public String getPocketmodTargetdir() {
+        String dirName = configuration.getProperty(POCKETMOD_TARGETDIR, "./");
+        if (dirName.endsWith(".")) {
+            dirName = dirName + "/";
+        }
+        return dirName;
+    }
+
+
     public String getPocketmodPage1Filename() {
         return getPocketmodSourcedir() + configuration.getProperty(POCKETMOD_PAGE_1_FILENAME, SEITE_1_PDF);
     }
@@ -136,6 +148,9 @@ public class Configuration {
         return getPocketmodSourcedir() + configuration.getProperty(POCKETMOD_PAGE_8_FILENAME, SEITE_8_PDF);
     }
 
+    public String getPocketmodOutputFilename() {
+        return getPocketmodTargetdir() + configuration.getProperty(POCKETMOD_OUTPUT_FILENAME, POCKETMODE_PDF);
+    }
 
 }
 

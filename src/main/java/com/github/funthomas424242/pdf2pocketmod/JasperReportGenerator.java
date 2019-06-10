@@ -76,7 +76,7 @@ public class JasperReportGenerator {
         // TODO Statt wie oben zu kompilieren, können wir auch gleich das Compiliat nutzen: Blank_A4.jasper
         final JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameter, new JREmptyDataSource());
         JasperExportManager.exportReportToPdfFile(jasperPrint,
-                Paths.get(".", "/generated/src/test/resources/Pocketmod.pdf").toAbsolutePath().toString());
+                Paths.get(configuration.getPocketmodOutputFilename()).toAbsolutePath().toString());
     }
 
 }
