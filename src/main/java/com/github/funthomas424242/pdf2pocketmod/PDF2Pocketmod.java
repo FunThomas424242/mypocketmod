@@ -38,9 +38,15 @@ import java.nio.file.Paths;
 
 public class PDF2Pocketmod {
 
+    final protected Configuration configuration;
+
     public static void main(String args[]) throws Exception {
         final PDF2Pocketmod app = new PDF2Pocketmod();
         app.run();
+    }
+
+    public PDF2Pocketmod() {
+        configuration = new Configuration();
     }
 
     public void run() throws IOException {
@@ -50,10 +56,14 @@ public class PDF2Pocketmod {
         //creating the PDPageContentStream object
         PDPageContentStream contents = new PDPageContentStream(pocketmodPdf, pocketmodPdf.getPage(0));
 
-        for (int pageNum = 1; pageNum < 3; pageNum++) {
-            final PDImageXObject seite = getPDFPageAsImage(pocketmodPdf, pageNum);
-            addImageToPage0(contents, seite);
-        }
+        // Content befüllen
+        final PDImageXObject seite1 = getPDFPageAsImage(pocketmodPdf, Paths.get(configuration.getPocketmodPage1Filename()));
+        addImageToPage0(contents, seite1);
+        final PDImageXObject seite2 = getPDFPageAsImage(pocketmodPdf, Paths.get(configuration.getPocketmodPage2Filename()));
+        addImageToPage0(contents, seite2);
+        final PDImageXObject seite3 = getPDFPageAsImage(pocketmodPdf, Paths.get(configuration.getPocketmodPage3Filename()));
+        addImageToPage0(contents, seite3);
+
         //Closing the PDPageContentStream object
         contents.close();
 
@@ -72,12 +82,12 @@ public class PDF2Pocketmod {
         return convertImage2Bytes(image);
     }
 
-    protected PDImageXObject getPDFPageAsImage(PDDocument pocketmodPdf, int pageNum) throws IOException {
-        final PDDocument seite = loadPage(Paths.get(".", "/src/test/resources/"), "Seite", "pdf", pageNum);
+    protected PDImageXObject getPDFPageAsImage(PDDocument pocketmodPdf, final Path fullFilePath) throws IOException {
+        final PDDocument seite = loadPage(fullFilePath);
         final BufferedImage image = getPDFAsImageBytes(seite);
         final byte[] bytes = convertImage2Bytes(image);
-        final PDImageXObject pdImage = PDImageXObject.createFromByteArray(pocketmodPdf, bytes, "myImage Seite" + pageNum);
-        System.out.println("Image created for page " + pageNum);
+        final PDImageXObject pdImage = PDImageXObject.createFromByteArray(pocketmodPdf, bytes, fullFilePath.getFileName().toString());
+        System.out.println("Image created for page " + fullFilePath.toAbsolutePath().toString());
         return pdImage;
     }
 
@@ -108,9 +118,9 @@ public class PDF2Pocketmod {
 
     protected PDDocument loadPage(final Path absoluteFilePath) throws IOException {
         //Loading page x
-        final File seite1 = absoluteFilePath.toFile();
-        System.out.println(seite1.getAbsolutePath());
-        return PDDocument.load(seite1);
+        final File pageFile = absoluteFilePath.toFile();
+        System.out.println(pageFile.getAbsolutePath());
+        return PDDocument.load(pageFile);
     }
 }
 
