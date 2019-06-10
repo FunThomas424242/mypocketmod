@@ -287,6 +287,18 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.github.funthomas424242.pdf2pocketmod.JasperReportGenerator</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-site-plugin</artifactId>
                 <version>3.7.1</version>
                 <configuration>
@@ -328,6 +340,11 @@
                             <goal>single</goal>
                         </goals>
                         <configuration>
+                            <archive>
+                                <manifest>
+                                    <mainClass>com.github.funthomas424242.pdf2pocketmod.JasperReportGenerator</mainClass>
+                                </manifest>
+                            </archive>
                             <tarLongFileMode>posix</tarLongFileMode>
                             <descriptorRefs>
                                 <descriptorRef>jar-with-dependencies</descriptorRef>
