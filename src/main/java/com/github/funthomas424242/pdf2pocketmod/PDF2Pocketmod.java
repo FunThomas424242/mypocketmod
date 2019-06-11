@@ -91,6 +91,12 @@ public class PDF2Pocketmod {
         }
     }
 
+    /**
+     * Quelle: https://stackoverflow.com/a/37758533/373498
+     * @param img
+     * @param angle
+     * @return
+     */
     public BufferedImage rotateImageByDegrees(BufferedImage img, double angle) {
 
         double rads = Math.toRadians(angle);
