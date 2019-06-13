@@ -79,9 +79,16 @@ public class PDF2Pocketmod {
 
     }
 
-    public byte[] getPDFPageAsBytes(final Path absoluteFilePath, int timesQuadrantRotate) throws IOException {
+    public byte[] getPDFPageAsBytes(final Path absoluteFilePath, int timesQuadrantRotatePortrait) throws IOException {
         final PDDocument seite = loadPage(absoluteFilePath);
         final BufferedImage image = getPDFAsImage(seite);
+
+
+        // Bestimmung Hoch oder Querformat
+        final int hoehe = image.getHeight();
+        final int breite = image.getWidth();
+        int timesQuadrantRotateLandscape = timesQuadrantRotatePortrait - 1;
+        final int timesQuadrantRotate = (hoehe > breite) ? timesQuadrantRotatePortrait :timesQuadrantRotateLandscape;
 
         if( timesQuadrantRotate > 0 ) {
             final BufferedImage rotatedImage = rotateImageByDegrees(image, (double) 90 * timesQuadrantRotate);
