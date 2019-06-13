@@ -29,7 +29,6 @@ import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 import org.apache.pdfbox.rendering.PDFRenderer;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
@@ -38,6 +37,8 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import static com.github.funthomas424242.pdf2pocketmod.Configuration.Orientation.*;
+
 
 public class PDF2Pocketmod {
 
@@ -79,7 +80,7 @@ public class PDF2Pocketmod {
 
     }
 
-    public byte[] getPDFPageAsBytes(final Path absoluteFilePath, int timesQuadrantRotatePortrait) throws IOException {
+    public byte[] getPDFPageAsBytes(final Path absoluteFilePath, final int timesQuadrantRotatePortrait, final Configuration.Orientation vorgabeOrientation) throws IOException {
         final PDDocument seite = loadPage(absoluteFilePath);
         final BufferedImage image = getPDFAsImage(seite);
 
@@ -88,7 +89,26 @@ public class PDF2Pocketmod {
         final int hoehe = image.getHeight();
         final int breite = image.getWidth();
         int timesQuadrantRotateLandscape = timesQuadrantRotatePortrait - 1;
-        final int timesQuadrantRotate = (hoehe > breite) ? timesQuadrantRotatePortrait :timesQuadrantRotateLandscape;
+
+
+        final int timesQuadrantRotate;
+        switch (vorgabeOrientation){
+            case HOCHFORMAT:{
+                timesQuadrantRotate=timesQuadrantRotatePortrait;
+                break;
+            }
+            case QUERFORMAT:{
+                timesQuadrantRotate=timesQuadrantRotateLandscape;
+                break;
+            }
+            case AUTO: // default -> no break
+            default:{
+                timesQuadrantRotate=(hoehe > breite) ? timesQuadrantRotatePortrait :timesQuadrantRotateLandscape;
+                break;
+            }
+
+        }
+
 
         if( timesQuadrantRotate > 0 ) {
             final BufferedImage rotatedImage = rotateImageByDegrees(image, (double) 90 * timesQuadrantRotate);
