@@ -47,14 +47,14 @@ public class JasperReportGenerator {
 
 
         final PDF2Pocketmod app = new PDF2Pocketmod();
-        final byte[] image1 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage1Filename()));
-        final byte[] image2 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage2Filename()));
-        final byte[] image3 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage3Filename()));
-        final byte[] image4 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage4Filename()));
-        final byte[] image5 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage5Filename()));
-        final byte[] image6 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage6Filename()));
-        final byte[] image7 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage7Filename()));
-        final byte[] image8 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage8Filename()));
+        final byte[] image1 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage1Filename()),3);
+        final byte[] image2 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage2Filename()),1);
+        final byte[] image3 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage3Filename()),1);
+        final byte[] image4 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage4Filename()),1);
+        final byte[] image5 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage5Filename()),1);
+        final byte[] image6 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage6Filename()),3);
+        final byte[] image7 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage7Filename()),3);
+        final byte[] image8 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage8Filename()),3);
 
 
         HashMap<String, Object> parameter =

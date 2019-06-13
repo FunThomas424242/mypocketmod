@@ -29,6 +29,9 @@ import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 import org.apache.pdfbox.rendering.PDFRenderer;
 
 import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.geom.AffineTransform;
+import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -69,22 +72,54 @@ public class PDF2Pocketmod {
 
 
         //Saving the document
-        pocketmodPdf.save(Paths.get(".","/generated/src/test/resources/OutputPocketmod.pdf").toAbsolutePath().toString());
+        pocketmodPdf.save(Paths.get(".", "/generated/src/test/resources/OutputPocketmod.pdf").toAbsolutePath().toString());
 
         //Closing the document
         pocketmodPdf.close();
 
     }
 
-    public byte[] getPDFPageAsBytes(final Path absoluteFilePath) throws IOException {
+    public byte[] getPDFPageAsBytes(final Path absoluteFilePath, int timesQuadrantRotate) throws IOException {
         final PDDocument seite = loadPage(absoluteFilePath);
-        final BufferedImage image = getPDFAsImageBytes(seite);
-        return convertImage2Bytes(image);
+        final BufferedImage image = getPDFAsImage(seite);
+
+        if( timesQuadrantRotate > 0 ) {
+            final BufferedImage rotatedImage = rotateImageByDegrees(image, (double) 90 * timesQuadrantRotate);
+            return convertImage2Bytes(rotatedImage);
+        }else{
+            return convertImage2Bytes(image);
+        }
+    }
+
+    /**
+     * Quelle: https://stackoverflow.com/a/37758533/373498
+     * @param img
+     * @param angle
+     * @return
+     */
+    public BufferedImage rotateImageByDegrees(BufferedImage img, double angle) {
+
+        double rads = Math.toRadians(angle);
+        double sin = Math.abs(Math.sin(rads)), cos = Math.abs(Math.cos(rads));
+        int w = img.getWidth();
+        int h = img.getHeight();
+        int newWidth = (int) Math.floor(w * cos + h * sin);
+        int newHeight = (int) Math.floor(h * cos + w * sin);
+
+        AffineTransform at = new AffineTransform();
+        at.translate((newWidth - w) / 2, (newHeight - h) / 2);
+        int x = w / 2;
+        int y = h / 2;
+
+        at.rotate(rads, x, y);
+        AffineTransformOp rotationTransformOp =  new AffineTransformOp(at , AffineTransformOp.TYPE_NEAREST_NEIGHBOR);
+        BufferedImage rotated = rotationTransformOp.filter(img,null);
+        return rotated;
     }
 
     protected PDImageXObject getPDFPageAsImage(PDDocument pocketmodPdf, final Path fullFilePath) throws IOException {
         final PDDocument seite = loadPage(fullFilePath);
-        final BufferedImage image = getPDFAsImageBytes(seite);
+        final BufferedImage image = getPDFAsImage(seite);
         final byte[] bytes = convertImage2Bytes(image);
         final PDImageXObject pdImage = PDImageXObject.createFromByteArray(pocketmodPdf, bytes, fullFilePath.getFileName().toString());
         System.out.println("Image created for page " + fullFilePath.toAbsolutePath().toString());
@@ -104,7 +139,7 @@ public class PDF2Pocketmod {
         return baos.toByteArray();
     }
 
-    private BufferedImage getPDFAsImageBytes(PDDocument doc1) throws IOException {
+    private BufferedImage getPDFAsImage(PDDocument doc1) throws IOException {
         //Instantiating the PDFRenderer class
         final PDFRenderer renderer = new PDFRenderer(doc1);
         //Rendering an image from the PDF document
