@@ -286,22 +286,22 @@ class PDF2PocketmodTest {
 
 
 
-        final byte[] image1 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage1Filename()),0);
+        final byte[] image1 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage1Filename()),0, Configuration.Orientation.AUTO);
         assertNotNull(image1);
         assertEquals(IMAGE1_BASE64, Base64.encodeBytes(image1));
-        final byte[] image2 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage2Filename()),0);
+        final byte[] image2 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage2Filename()),0 ,Configuration.Orientation.AUTO);
         assertNotNull(image2);
-        final byte[] image3 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage3Filename()),0);
+        final byte[] image3 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage3Filename()),0 ,Configuration.Orientation.AUTO);
         assertNotNull(image3);
-        final byte[] image4 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage4Filename()),0);
+        final byte[] image4 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage4Filename()),0 ,Configuration.Orientation.AUTO);
         assertNotNull(image4);
-        final byte[] image5 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage5Filename()),0);
+        final byte[] image5 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage5Filename()),0 ,Configuration.Orientation.AUTO);
         assertNotNull(image5);
-        final byte[] image6 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage6Filename()),0);
+        final byte[] image6 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage6Filename()),0 ,Configuration.Orientation.AUTO);
         assertNotNull(image6);
-        final byte[] image7 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage7Filename()),0);
+        final byte[] image7 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage7Filename()),0 ,Configuration.Orientation.AUTO);
         assertNotNull(image7);
-        final byte[] image8 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage8Filename()),0);
+        final byte[] image8 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage8Filename()),0 ,Configuration.Orientation.AUTO);
         assertNotNull(image8);
 
     }

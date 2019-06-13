@@ -42,6 +42,15 @@ public class Configuration {
     public static final String POCKETMOD_PAGE_6_FILENAME = "pocketmod.page6.filename";
     public static final String POCKETMOD_PAGE_7_FILENAME = "pocketmod.page7.filename";
     public static final String POCKETMOD_PAGE_8_FILENAME = "pocketmod.page8.filename";
+    public static final String POCKETMOD_PAGE_1_ORIENTATION = "pocketmod.page1.orientation";
+    public static final String POCKETMOD_PAGE_2_ORIENTATION = "pocketmod.page2.orientation";
+    public static final String POCKETMOD_PAGE_3_ORIENTATION = "pocketmod.page3.orientation";
+    public static final String POCKETMOD_PAGE_4_ORIENTATION = "pocketmod.page4.orientation";
+    public static final String POCKETMOD_PAGE_5_ORIENTATION = "pocketmod.page5.orientation";
+    public static final String POCKETMOD_PAGE_6_ORIENTATION = "pocketmod.page6.orientation";
+    public static final String POCKETMOD_PAGE_7_ORIENTATION = "pocketmod.page7.orientation";
+    public static final String POCKETMOD_PAGE_8_ORIENTATION = "pocketmod.page8.orientation";
+
     public static final String SEITE_1_PDF = "Seite1.pdf";
     public static final String SEITE_2_PDF = "Seite2.pdf";
     public static final String SEITE_3_PDF = "Seite3.pdf";
@@ -51,6 +60,27 @@ public class Configuration {
     public static final String SEITE_7_PDF = "Seite7.pdf";
     public static final String SEITE_8_PDF = "Seite8.pdf";
     public static final String POCKETMODE_PDF = "Pocketmod.pdf";
+
+
+    public enum Orientation {
+        AUTO("auto"),
+        HOCHFORMAT("hochformat"),
+        QUERFORMAT("querformat");
+
+        protected final String id;
+
+        Orientation(final String id) {
+            this.id = id;
+        }
+
+        public String getId() {
+            return id;
+        }
+
+        public static Orientation of(final String id) {
+            return Orientation.valueOf(id.toUpperCase());
+        }
+    }
 
     final Properties configuration;
 
@@ -71,6 +101,15 @@ public class Configuration {
         configuration.setProperty(POCKETMOD_PAGE_6_FILENAME, SEITE_6_PDF);
         configuration.setProperty(POCKETMOD_PAGE_7_FILENAME, SEITE_7_PDF);
         configuration.setProperty(POCKETMOD_PAGE_8_FILENAME, SEITE_8_PDF);
+
+        configuration.setProperty(POCKETMOD_PAGE_1_ORIENTATION, Orientation.AUTO.getId());
+        configuration.setProperty(POCKETMOD_PAGE_2_ORIENTATION, Orientation.AUTO.getId());
+        configuration.setProperty(POCKETMOD_PAGE_3_ORIENTATION, Orientation.AUTO.getId());
+        configuration.setProperty(POCKETMOD_PAGE_4_ORIENTATION, Orientation.AUTO.getId());
+        configuration.setProperty(POCKETMOD_PAGE_5_ORIENTATION, Orientation.AUTO.getId());
+        configuration.setProperty(POCKETMOD_PAGE_6_ORIENTATION, Orientation.AUTO.getId());
+        configuration.setProperty(POCKETMOD_PAGE_7_ORIENTATION, Orientation.AUTO.getId());
+        configuration.setProperty(POCKETMOD_PAGE_8_ORIENTATION, Orientation.AUTO.getId());
 
         final File configFile = Paths.get("./", "pocketmod.config").toFile();
         if (!configFile.exists()) {
@@ -151,6 +190,39 @@ public class Configuration {
     public String getPocketmodOutputFilename() {
         return getPocketmodTargetdir() + configuration.getProperty(POCKETMOD_OUTPUT_FILENAME, POCKETMODE_PDF);
     }
+
+    public Orientation getPocketmodPage1Orientation() {
+        return Orientation.of(configuration.getProperty(POCKETMOD_PAGE_1_ORIENTATION, Orientation.AUTO.getId()));
+    }
+
+    public Orientation getPocketmodPage2Orientation() {
+        return Orientation.of(configuration.getProperty(POCKETMOD_PAGE_2_ORIENTATION, Orientation.AUTO.getId()));
+    }
+
+    public Orientation getPocketmodPage3Orientation() {
+        return Orientation.of(configuration.getProperty(POCKETMOD_PAGE_3_ORIENTATION, Orientation.AUTO.getId()));
+    }
+
+    public Orientation getPocketmodPage4Orientation() {
+        return Orientation.of(configuration.getProperty(POCKETMOD_PAGE_4_ORIENTATION, Orientation.AUTO.getId()));
+    }
+
+    public Orientation getPocketmodPage5Orientation() {
+        return Orientation.of(configuration.getProperty(POCKETMOD_PAGE_5_ORIENTATION, Orientation.AUTO.getId()));
+    }
+
+    public Orientation getPocketmodPage6Orientation() {
+        return Orientation.of(configuration.getProperty(POCKETMOD_PAGE_6_ORIENTATION, Orientation.AUTO.getId()));
+    }
+
+    public Orientation getPocketmodPage7Orientation() {
+        return Orientation.of(configuration.getProperty(POCKETMOD_PAGE_7_ORIENTATION, Orientation.AUTO.getId()));
+    }
+
+    public Orientation getPocketmodPage8Orientation() {
+        return Orientation.of(configuration.getProperty(POCKETMOD_PAGE_8_ORIENTATION, Orientation.AUTO.getId()));
+    }
+
 
 }
 
