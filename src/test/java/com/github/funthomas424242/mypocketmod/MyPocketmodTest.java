@@ -261,7 +261,7 @@ class MyPocketmodTest {
 
     @BeforeAll
     static void setUpTestsuite() {
-        configuration = new Configuration();
+        configuration = Configuration.createNewConfiguration().initialize();
     }
 
     @BeforeEach

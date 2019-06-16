@@ -38,8 +38,6 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import static com.github.funthomas424242.mypocketmod.Configuration.Orientation.*;
-
 
 public class MyPocketmod {
 
@@ -51,7 +49,7 @@ public class MyPocketmod {
     }
 
     public MyPocketmod() {
-        configuration = new Configuration();
+        configuration = Configuration.createNewConfiguration().initialize();
     }
 
     public void run() throws IOException {
@@ -93,34 +91,35 @@ public class MyPocketmod {
 
 
         final int timesQuadrantRotate;
-        switch (vorgabeOrientation){
-            case HOCHFORMAT:{
-                timesQuadrantRotate=timesQuadrantRotatePortrait;
+        switch (vorgabeOrientation) {
+            case HOCHFORMAT: {
+                timesQuadrantRotate = timesQuadrantRotatePortrait;
                 break;
             }
-            case QUERFORMAT:{
-                timesQuadrantRotate=timesQuadrantRotateLandscape;
+            case QUERFORMAT: {
+                timesQuadrantRotate = timesQuadrantRotateLandscape;
                 break;
             }
             case AUTO: // default -> no break
-            default:{
-                timesQuadrantRotate=(hoehe > breite) ? timesQuadrantRotatePortrait :timesQuadrantRotateLandscape;
+            default: {
+                timesQuadrantRotate = (hoehe > breite) ? timesQuadrantRotatePortrait : timesQuadrantRotateLandscape;
                 break;
             }
 
         }
 
 
-        if( timesQuadrantRotate > 0 ) {
+        if (timesQuadrantRotate > 0) {
             final BufferedImage rotatedImage = rotateImageByDegrees(image, (double) 90 * timesQuadrantRotate);
             return convertImage2Bytes(rotatedImage);
-        }else{
+        } else {
             return convertImage2Bytes(image);
         }
     }
 
     /**
      * Quelle: https://stackoverflow.com/a/37758533/373498
+     *
      * @param img
      * @param angle
      * @return
@@ -140,8 +139,8 @@ public class MyPocketmod {
         int y = h / 2;
 
         at.rotate(rads, x, y);
-        AffineTransformOp rotationTransformOp =  new AffineTransformOp(at , AffineTransformOp.TYPE_NEAREST_NEIGHBOR);
-        BufferedImage rotated = rotationTransformOp.filter(img,null);
+        AffineTransformOp rotationTransformOp = new AffineTransformOp(at, AffineTransformOp.TYPE_NEAREST_NEIGHBOR);
+        BufferedImage rotated = rotationTransformOp.filter(img, null);
         return rotated;
     }
 

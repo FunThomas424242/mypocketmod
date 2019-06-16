@@ -29,7 +29,11 @@ import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.Properties;
 
-public class Configuration {
+interface Uninitialized {
+    Configuration initialize();
+}
+
+public class Configuration implements Uninitialized {
 
     public static final String POCKETMOD_SOURCEDIR = "mypocketmod.sourcedir";
     public static final String POCKETMOD_TARGETDIR = "mypocketmod.targetdir";
@@ -84,12 +88,15 @@ public class Configuration {
 
     final Properties configuration;
 
-    public Configuration() {
+    private Configuration() {
         configuration = new Properties();
-        initialize();
     }
 
-    protected void initialize() {
+    public static Uninitialized createNewConfiguration() {
+        return new Configuration();
+    }
+
+    public Configuration initialize() {
         configuration.setProperty(POCKETMOD_SOURCEDIR, Paths.get("./").toAbsolutePath().toString());
         configuration.setProperty(POCKETMOD_TARGETDIR, Paths.get("./").toAbsolutePath().toString());
         configuration.setProperty(POCKETMOD_OUTPUT_FILENAME, POCKETMODE_PDF);
@@ -120,7 +127,7 @@ public class Configuration {
             } catch (IOException e) {
                 e.printStackTrace();
                 System.out.println("Konfiguration mypocketmod.config konnte nicht erstellt werden");
-                return;
+                return this;
             }
             try {
                 final FileWriter writer = new FileWriter(configFile);
@@ -134,8 +141,9 @@ public class Configuration {
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Konfiguration mypocketmod.config konnte nicht geladen werden");
-            return;
+            return this;
         }
+        return this;
     }
 
     public String getPocketmodSourcedir() {

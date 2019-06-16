@@ -40,7 +40,7 @@ public class MyPocketmodGenerator {
     }
 
     public MyPocketmodGenerator() {
-        configuration = new Configuration();
+        configuration = Configuration.createNewConfiguration().initialize();
     }
 
     public void run() throws JRException, IOException {
