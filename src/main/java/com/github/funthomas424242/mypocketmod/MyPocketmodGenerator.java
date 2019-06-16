@@ -29,17 +29,17 @@ import java.io.InputStream;
 import java.nio.file.Paths;
 import java.util.HashMap;
 
-public class JasperReportGenerator {
+public class MyPocketmodGenerator {
 
     final protected Configuration configuration;
 
 
     public static void main(String[] args) throws JRException, IOException {
-        final JasperReportGenerator report = new JasperReportGenerator();
+        final MyPocketmodGenerator report = new MyPocketmodGenerator();
         report.run();
     }
 
-    public JasperReportGenerator() {
+    public MyPocketmodGenerator() {
         configuration = new Configuration();
     }
 
