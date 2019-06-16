@@ -1,8 +1,8 @@
-package com.github.funthomas424242.pdf2pocketmod;
+package com.github.funthomas424242.mypocketmod;
 
 /*-
  * #%L
- * pdf2pocketmod
+ * MyPocketmod
  * %%
  * Copyright (C) 2018 - 2019 PIUG
  * %%

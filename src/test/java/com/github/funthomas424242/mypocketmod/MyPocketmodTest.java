@@ -1,8 +1,8 @@
-package com.github.funthomas424242.pdf2pocketmod;
+package com.github.funthomas424242.mypocketmod;
 
 /*-
  * #%L
- * pdf2pocketmod
+ * MyPocketmod
  * %%
  * Copyright (C) 2018 - 2019 PIUG
  * %%
@@ -10,12 +10,12 @@ package com.github.funthomas424242.pdf2pocketmod;
  * it under the terms of the GNU Lesser General Public License as
  * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Lesser Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Lesser Public
  * License along with this program.  If not, see
  * <http://www.gnu.org/licenses/lgpl-3.0.html>.
@@ -26,7 +26,6 @@ import com.lowagie.text.pdf.codec.Base64;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import sun.security.krb5.Config;
 
 import java.io.IOException;
 import java.nio.file.Paths;
@@ -34,7 +33,7 @@ import java.nio.file.Paths;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-class PDF2PocketmodTest {
+class MyPocketmodTest {
 
     final static String IMAGE1_BASE64 = "/9j/4AAQSkZJRgABAgAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0a\n" +
             "HBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIy\n" +
@@ -257,22 +256,22 @@ class PDF2PocketmodTest {
 
     static Configuration configuration;
 
-    PDF2Pocketmod app;
+    MyPocketmod app;
 
 
     @BeforeAll
-    static void  setUpTestsuite(){
+    static void setUpTestsuite() {
         configuration = new Configuration();
     }
 
     @BeforeEach
-    void initialisiereTestfall(){
-        app= new PDF2Pocketmod();
-        Paths.get(".","/generated/src/test/resources/").toFile().mkdirs();
+    void initialisiereTestfall() {
+        app = new MyPocketmod();
+        Paths.get(".", "/generated/src/test/resources/").toFile().mkdirs();
     }
 
     @Test
-    void testRun(){
+    void testRun() {
         try {
             app.run();
         } catch (IOException e) {
@@ -285,23 +284,22 @@ class PDF2PocketmodTest {
     void testInputOutput() throws Exception {
 
 
-
-        final byte[] image1 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage1Filename()),0, Configuration.Orientation.AUTO);
+        final byte[] image1 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage1Filename()), 0, Configuration.Orientation.AUTO);
         assertNotNull(image1);
         assertEquals(IMAGE1_BASE64, Base64.encodeBytes(image1));
-        final byte[] image2 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage2Filename()),0 ,Configuration.Orientation.AUTO);
+        final byte[] image2 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage2Filename()), 0, Configuration.Orientation.AUTO);
         assertNotNull(image2);
-        final byte[] image3 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage3Filename()),0 ,Configuration.Orientation.AUTO);
+        final byte[] image3 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage3Filename()), 0, Configuration.Orientation.AUTO);
         assertNotNull(image3);
-        final byte[] image4 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage4Filename()),0 ,Configuration.Orientation.AUTO);
+        final byte[] image4 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage4Filename()), 0, Configuration.Orientation.AUTO);
         assertNotNull(image4);
-        final byte[] image5 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage5Filename()),0 ,Configuration.Orientation.AUTO);
+        final byte[] image5 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage5Filename()), 0, Configuration.Orientation.AUTO);
         assertNotNull(image5);
-        final byte[] image6 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage6Filename()),0 ,Configuration.Orientation.AUTO);
+        final byte[] image6 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage6Filename()), 0, Configuration.Orientation.AUTO);
         assertNotNull(image6);
-        final byte[] image7 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage7Filename()),0 ,Configuration.Orientation.AUTO);
+        final byte[] image7 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage7Filename()), 0, Configuration.Orientation.AUTO);
         assertNotNull(image7);
-        final byte[] image8 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage8Filename()),0 ,Configuration.Orientation.AUTO);
+        final byte[] image8 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage8Filename()), 0, Configuration.Orientation.AUTO);
         assertNotNull(image8);
 
     }

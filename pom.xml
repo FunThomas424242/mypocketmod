@@ -6,12 +6,12 @@
 
     <groupId>com.github.funthomas424242</groupId>
     <version>0.0.1-SNAPSHOT</version>
-    <artifactId>pdf2pocketmod</artifactId>
+    <artifactId>mypocketmod</artifactId>
     <packaging>jar</packaging>
-    <name>pdf2pocketmod</name>
+    <name>MyPocketmod</name>
     <description>Konvertiert 8 PDF Dateien zu einer Pocketmod PDF Seite</description>
     <inceptionYear>2018</inceptionYear>
-    <url>https://github.com/FunThomas424242/pdf2pocketmod</url>
+    <url>https://github.com/FunThomas424242/mypocketmod</url>
     <licenses>
         <license>
             <url>https://www.gnu.org/licenses/lgpl-3.0.de.html</url>
@@ -22,17 +22,17 @@
         </license>
     </licenses>
     <scm>
-        <connection>scm:git:https://github.com/FunThomas424242/pdf2pocketmod.git</connection>
-        <developerConnection>scm:git:git@github.com:FunThomas424242/pdf2pocketmod.git</developerConnection>
-        <url>https://github.com/FunThomas424242/pdf2pocketmod</url>
+        <connection>scm:git:https://github.com/FunThomas424242/mypocketmod.git</connection>
+        <developerConnection>scm:git:git@github.com:FunThomas424242/mypocketmod.git</developerConnection>
+        <url>https://github.com/FunThomas424242/mypocketmod</url>
     </scm>
     <issueManagement>
         <system>GitHub</system>
-        <url>https://github.com/FunThomas424242/pdf2pocketmod/issues/new</url>
+        <url>https://github.com/FunThomas424242/mypocketmod/issues/new</url>
     </issueManagement>
     <ciManagement>
         <system>Travis</system>
-        <url>https://travis-ci.org/FunThomas424242/pdf2pocketmod</url>
+        <url>https://travis-ci.org/FunThomas424242/mypocketmod</url>
     </ciManagement>
     <distributionManagement>
         <snapshotRepository>
@@ -292,7 +292,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.github.funthomas424242.pdf2pocketmod.JasperReportGenerator</mainClass>
+                            <mainClass>com.github.funthomas424242.mypocketmod.JasperReportGenerator</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -342,7 +342,7 @@
                         <configuration>
                             <archive>
                                 <manifest>
-                                    <mainClass>com.github.funthomas424242.pdf2pocketmod.JasperReportGenerator</mainClass>
+                                    <mainClass>com.github.funthomas424242.mypocketmod.JasperReportGenerator</mainClass>
                                 </manifest>
                             </archive>
                             <tarLongFileMode>posix</tarLongFileMode>

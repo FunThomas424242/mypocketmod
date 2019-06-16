@@ -1,8 +1,8 @@
-package com.github.funthomas424242.pdf2pocketmod;
+package com.github.funthomas424242.mypocketmod;
 
 /*-
  * #%L
- * pdf2pocketmod
+ * MyPocketmod
  * %%
  * Copyright (C) 2018 - 2019 PIUG
  * %%
@@ -37,19 +37,20 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import static com.github.funthomas424242.pdf2pocketmod.Configuration.Orientation.*;
+
+import static com.github.funthomas424242.mypocketmod.Configuration.Orientation.*;
 
 
-public class PDF2Pocketmod {
+public class MyPocketmod {
 
     final protected Configuration configuration;
 
     public static void main(String args[]) throws Exception {
-        final PDF2Pocketmod app = new PDF2Pocketmod();
+        final com.github.funthomas424242.mypocketmod.MyPocketmod app = new com.github.funthomas424242.mypocketmod.MyPocketmod();
         app.run();
     }
 
-    public PDF2Pocketmod() {
+    public MyPocketmod() {
         configuration = new Configuration();
     }
 

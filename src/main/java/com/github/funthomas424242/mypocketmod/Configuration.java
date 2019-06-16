@@ -1,8 +1,8 @@
-package com.github.funthomas424242.pdf2pocketmod;
+package com.github.funthomas424242.mypocketmod;
 
 /*-
  * #%L
- * pdf2pocketmod
+ * MyPocketmod
  * %%
  * Copyright (C) 2018 - 2019 PIUG
  * %%
@@ -124,7 +124,7 @@ public class Configuration {
             }
             try {
                 final FileWriter writer = new FileWriter(configFile);
-                configuration.store(writer, "Configuration für PDF2Pocketmod");
+                configuration.store(writer, "Configuration für MyPocketmod");
             } catch (IOException e) {
                 e.printStackTrace();
             }

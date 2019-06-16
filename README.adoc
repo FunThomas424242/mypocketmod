@@ -1,12 +1,12 @@
 [#status]
-image:https://maven-badges.herokuapp.com/maven-central/com.github.funthomas424242/pdf2pocketmod/badge.svg?style=flat["Maven Central", link="https://maven-badges.herokuapp.com/maven-central/com.github.funthomas424242/pdf2pocketmod"]
-image:https://api.bintray.com/packages/funthomas424242/funthomas424242-libs/pdf2pocketmod/images/download.svg[link="https://bintray.com/funthomas424242/funthomas424242-libs/pdf2pocketmod/_latestVersion"]
-image:https://travis-ci.org/FunThomas424242/pdf2pocketmod.svg?branch=master["Build Status", link="https://travis-ci.org/FunThomas424242/pdf2pocketmod"]
-image:https://api.codacy.com/project/badge/Grade/88bf76546176437ea389629a2087d1b5["Codacy code quality", link="https://www.codacy.com/app/FunThomas424242/pdf2pocketmod?utm_source=github.com&utm_medium=referral&utm_content=FunThomas424242/pdf2pocketmod&utm_campaign=Badge_Grade"]
-image:https://codecov.io/gh/FunThomas424242/pdf2pocketmod/branch/master/graph/badge.svg[link="https://codecov.io/gh/FunThomas424242/pdf2pocketmod"]
-image:https://badge.waffle.io/FunThomas424242/pdf2pocketmod.svg?columns=all["Waffle.io - Columns and their card count", link="https://waffle.io/FunThomas424242/pdf2pocketmod"]
+image:https://maven-badges.herokuapp.com/maven-central/com.github.funthomas424242/mypocketmod/badge.svg?style=flat["Maven Central", link="https://maven-badges.herokuapp.com/maven-central/com.github.funthomas424242/mypocketmod"]
+image:https://api.bintray.com/packages/funthomas424242/funthomas424242-libs/mypocketmod/images/download.svg[link="https://bintray.com/funthomas424242/funthomas424242-libs/mypocketmod/_latestVersion"]
+image:https://travis-ci.org/FunThomas424242/mypocketmod.svg?branch=master["Build Status", link="https://travis-ci.org/FunThomas424242/mypocketmod"]
+image:https://api.codacy.com/project/badge/Grade/88bf76546176437ea389629a2087d1b5["Codacy code quality", link="https://www.codacy.com/app/FunThomas424242/mypocketmod?utm_source=github.com&utm_medium=referral&utm_content=FunThomas424242/mypocketmod&utm_campaign=Badge_Grade"]
+image:https://codecov.io/gh/FunThomas424242/mypocketmod/branch/master/graph/badge.svg[link="https://codecov.io/gh/FunThomas424242/mypocketmod"]
+image:https://badge.waffle.io/FunThomas424242/mypocketmod.svg?columns=all["Waffle.io - Columns and their card count", link="https://waffle.io/FunThomas424242/mypocketmod"]
 
-== pdf2pocketmod
+== mypocketmod
 Convert 8 pdf documents to 1 pocketmod page as pdf
 
 
