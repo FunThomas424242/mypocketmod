@@ -22,22 +22,16 @@ package com.github.funthomas424242.mypocketmod;
  * #L%
  */
 
-import mockit.Injectable;
-import mockit.Mocked;
 import mockit.Tested;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.Properties;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 
 public class ConfigurationTest {
-
-//    @Injectable
-//    Properties properties;
 
     @Tested
     protected Configuration configuration;
