@@ -29,7 +29,7 @@ import java.nio.file.Paths;
 
 import static org.junit.jupiter.api.Assertions.fail;
 
-class MyPocketmodGeneratorTest {
+class MyPocketmodGeneratorIntegrationTest {
 
     protected MyPocketmodGenerator generator;
 
