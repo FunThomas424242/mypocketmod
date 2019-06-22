@@ -77,6 +77,7 @@ public class MyPocketmodGenerator {
         final JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameter, new JREmptyDataSource());
         JasperExportManager.exportReportToPdfFile(jasperPrint,
                 Paths.get(configuration.getPocketmodOutputFilename()).toAbsolutePath().toString());
+        inputStream.close();
     }
 
 }
