@@ -1,8 +1,8 @@
-package com.github.funthomas424242.pdf2pocketmod;
+package com.github.funthomas424242.mypocketmod;
 
 /*-
  * #%L
- * pdf2pocketmod
+ * MyPocketmod
  * %%
  * Copyright (C) 2018 - 2019 PIUG
  * %%
@@ -29,24 +29,24 @@ import java.io.InputStream;
 import java.nio.file.Paths;
 import java.util.HashMap;
 
-public class JasperReportGenerator {
+public class MyPocketmodGenerator {
 
     final protected Configuration configuration;
 
 
     public static void main(String[] args) throws JRException, IOException {
-        final JasperReportGenerator report = new JasperReportGenerator();
+        final MyPocketmodGenerator report = new MyPocketmodGenerator();
         report.run();
     }
 
-    public JasperReportGenerator() {
-        configuration = new Configuration();
+    public MyPocketmodGenerator() {
+        configuration = Configuration.createNewConfiguration().initialize();
     }
 
     public void run() throws JRException, IOException {
 
 
-        final PDF2Pocketmod app = new PDF2Pocketmod();
+        final MyPocketmod app = new MyPocketmod();
         final byte[] image1 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage1Filename()),3,configuration.getPocketmodPage1Orientation());
         final byte[] image2 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage2Filename()),1,configuration.getPocketmodPage2Orientation());
         final byte[] image3 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage3Filename()),1,configuration.getPocketmodPage3Orientation());

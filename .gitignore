@@ -24,7 +24,10 @@ hs_err_pid*
 
 # ide
 /.idea
+*.iml
 
 # build
 /target
 /generated
+/coverage-failure.txt
+

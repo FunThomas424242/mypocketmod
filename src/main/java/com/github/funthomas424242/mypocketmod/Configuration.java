@@ -1,8 +1,8 @@
-package com.github.funthomas424242.pdf2pocketmod;
+package com.github.funthomas424242.mypocketmod;
 
 /*-
  * #%L
- * pdf2pocketmod
+ * MyPocketmod
  * %%
  * Copyright (C) 2018 - 2019 PIUG
  * %%
@@ -29,27 +29,31 @@ import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.Properties;
 
-public class Configuration {
+interface Uninitialized {
+    Configuration initialize();
+}
 
-    public static final String POCKETMOD_SOURCEDIR = "pocketmod.sourcedir";
-    public static final String POCKETMOD_TARGETDIR = "pocketmod.targetdir";
-    public static final String POCKETMOD_OUTPUT_FILENAME = "pocketmod.output.filename";
-    public static final String POCKETMOD_PAGE_1_FILENAME = "pocketmod.page1.filename";
-    public static final String POCKETMOD_PAGE_2_FILENAME = "pocketmod.page2.filename";
-    public static final String POCKETMOD_PAGE_3_FILENAME = "pocketmod.page3.filename";
-    public static final String POCKETMOD_PAGE_4_FILENAME = "pocketmod.page4.filename";
-    public static final String POCKETMOD_PAGE_5_FILENAME = "pocketmod.page5.filename";
-    public static final String POCKETMOD_PAGE_6_FILENAME = "pocketmod.page6.filename";
-    public static final String POCKETMOD_PAGE_7_FILENAME = "pocketmod.page7.filename";
-    public static final String POCKETMOD_PAGE_8_FILENAME = "pocketmod.page8.filename";
-    public static final String POCKETMOD_PAGE_1_ORIENTATION = "pocketmod.page1.orientation";
-    public static final String POCKETMOD_PAGE_2_ORIENTATION = "pocketmod.page2.orientation";
-    public static final String POCKETMOD_PAGE_3_ORIENTATION = "pocketmod.page3.orientation";
-    public static final String POCKETMOD_PAGE_4_ORIENTATION = "pocketmod.page4.orientation";
-    public static final String POCKETMOD_PAGE_5_ORIENTATION = "pocketmod.page5.orientation";
-    public static final String POCKETMOD_PAGE_6_ORIENTATION = "pocketmod.page6.orientation";
-    public static final String POCKETMOD_PAGE_7_ORIENTATION = "pocketmod.page7.orientation";
-    public static final String POCKETMOD_PAGE_8_ORIENTATION = "pocketmod.page8.orientation";
+public class Configuration implements Uninitialized {
+
+    public static final String POCKETMOD_SOURCEDIR = "mypocketmod.sourcedir";
+    public static final String POCKETMOD_TARGETDIR = "mypocketmod.targetdir";
+    public static final String POCKETMOD_OUTPUT_FILENAME = "mypocketmod.output.filename";
+    public static final String POCKETMOD_PAGE_1_FILENAME = "mypocketmod.page1.filename";
+    public static final String POCKETMOD_PAGE_2_FILENAME = "mypocketmod.page2.filename";
+    public static final String POCKETMOD_PAGE_3_FILENAME = "mypocketmod.page3.filename";
+    public static final String POCKETMOD_PAGE_4_FILENAME = "mypocketmod.page4.filename";
+    public static final String POCKETMOD_PAGE_5_FILENAME = "mypocketmod.page5.filename";
+    public static final String POCKETMOD_PAGE_6_FILENAME = "mypocketmod.page6.filename";
+    public static final String POCKETMOD_PAGE_7_FILENAME = "mypocketmod.page7.filename";
+    public static final String POCKETMOD_PAGE_8_FILENAME = "mypocketmod.page8.filename";
+    public static final String POCKETMOD_PAGE_1_ORIENTATION = "mypocketmod.page1.orientation";
+    public static final String POCKETMOD_PAGE_2_ORIENTATION = "mypocketmod.page2.orientation";
+    public static final String POCKETMOD_PAGE_3_ORIENTATION = "mypocketmod.page3.orientation";
+    public static final String POCKETMOD_PAGE_4_ORIENTATION = "mypocketmod.page4.orientation";
+    public static final String POCKETMOD_PAGE_5_ORIENTATION = "mypocketmod.page5.orientation";
+    public static final String POCKETMOD_PAGE_6_ORIENTATION = "mypocketmod.page6.orientation";
+    public static final String POCKETMOD_PAGE_7_ORIENTATION = "mypocketmod.page7.orientation";
+    public static final String POCKETMOD_PAGE_8_ORIENTATION = "mypocketmod.page8.orientation";
 
     public static final String SEITE_1_PDF = "Seite1.pdf";
     public static final String SEITE_2_PDF = "Seite2.pdf";
@@ -59,7 +63,7 @@ public class Configuration {
     public static final String SEITE_6_PDF = "Seite6.pdf";
     public static final String SEITE_7_PDF = "Seite7.pdf";
     public static final String SEITE_8_PDF = "Seite8.pdf";
-    public static final String POCKETMODE_PDF = "Pocketmod.pdf";
+    public static final String POCKETMODE_PDF = "mypocketmod.pdf";
 
 
     public enum Orientation {
@@ -84,12 +88,15 @@ public class Configuration {
 
     final Properties configuration;
 
-    public Configuration() {
+    private Configuration() {
         configuration = new Properties();
-        initialize();
     }
 
-    protected void initialize() {
+    public static Uninitialized createNewConfiguration() {
+        return new Configuration();
+    }
+
+    public Configuration initialize() {
         configuration.setProperty(POCKETMOD_SOURCEDIR, Paths.get("./").toAbsolutePath().toString());
         configuration.setProperty(POCKETMOD_TARGETDIR, Paths.get("./").toAbsolutePath().toString());
         configuration.setProperty(POCKETMOD_OUTPUT_FILENAME, POCKETMODE_PDF);
@@ -111,7 +118,7 @@ public class Configuration {
         configuration.setProperty(POCKETMOD_PAGE_7_ORIENTATION, Orientation.AUTO.getId());
         configuration.setProperty(POCKETMOD_PAGE_8_ORIENTATION, Orientation.AUTO.getId());
 
-        final File configFile = Paths.get("./", "pocketmod.config").toFile();
+        final File configFile = Paths.get("./", "mypocketmod.config").toFile();
         if (!configFile.exists()) {
             configFile.getParentFile().mkdirs();
             boolean created;
@@ -119,12 +126,12 @@ public class Configuration {
                 created = !configFile.createNewFile();
             } catch (IOException e) {
                 e.printStackTrace();
-                System.out.println("Konfiguration pocketmod.config konnte nicht erstellt werden");
-                return;
+                System.out.println("Konfiguration mypocketmod.config konnte nicht erstellt werden");
+                return this;
             }
             try {
                 final FileWriter writer = new FileWriter(configFile);
-                configuration.store(writer, "Configuration für PDF2Pocketmod");
+                configuration.store(writer, "Configuration für MyPocketmod");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -133,9 +140,10 @@ public class Configuration {
             configuration.load(reader);
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Konfiguration pocketmod.config konnte nicht geladen werden");
-            return;
+            System.out.println("Konfiguration mypocketmod.config konnte nicht geladen werden");
+            return this;
         }
+        return this;
     }
 
     public String getPocketmodSourcedir() {

@@ -1,8 +1,8 @@
-package com.github.funthomas424242.pdf2pocketmod;
+package com.github.funthomas424242.mypocketmod;
 
 /*-
  * #%L
- * pdf2pocketmod
+ * MyPocketmod
  * %%
  * Copyright (C) 2018 - 2019 PIUG
  * %%
@@ -29,13 +29,13 @@ import java.nio.file.Paths;
 
 import static org.junit.jupiter.api.Assertions.fail;
 
-class JasperReportGeneratorTest {
+class MyPocketmodGeneratorTest {
 
-    protected JasperReportGenerator generator;
+    protected MyPocketmodGenerator generator;
 
     @BeforeEach
     void setupTestfall() {
-        generator = new JasperReportGenerator();
+        generator = new MyPocketmodGenerator();
         Paths.get(".", "/generated/src/test/resources/").toFile().mkdirs();
     }
 
