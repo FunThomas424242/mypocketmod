@@ -67,6 +67,7 @@ Harte und rauhe Methode, welche aber immer gehen sollte
 * https://github.com/noffle/art-of-readme
 * https://keepachangelog.com/de
 * http://boeffi.net/tutorials/local-mock-variables-ein-dritter-weg-in-jmockit/
+* http://www.testautomationguru.com/introducing-pdfutil-to-compare-pdf-files-extract-resources/
 
 [#projektverantwortlicher]
 == Projektverantwortlicher
