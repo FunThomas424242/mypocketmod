@@ -22,11 +22,15 @@ package com.github.funthomas424242.mypocketmod;
  * #L%
  */
 
+import com.testautomationguru.utility.CompareMode;
+import com.testautomationguru.utility.PDFUtil;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
 import java.nio.file.Paths;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
 class MyPocketmodGeneratorIntegrationTest {
@@ -47,6 +51,17 @@ class MyPocketmodGeneratorIntegrationTest {
             e.printStackTrace();
             fail();
         }
+        final String generatedPDF = Paths.get("./","generated/src/test/MyPocketmod.pdf").toAbsolutePath().toString();
+        final String expectedPDF = Paths.get("./","src/test/resources/MyPocketmod.pdf").toAbsolutePath().toString();
+        PDFUtil pdfUtil = new PDFUtil();
+        pdfUtil.setCompareMode(CompareMode.VISUAL_MODE);
+        try {
+            assertTrue(pdfUtil.compare(generatedPDF, expectedPDF));
+        } catch (IOException e) {
+            e.printStackTrace();
+            fail();
+        }
+
     }
 
 }

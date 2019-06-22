@@ -96,12 +96,12 @@
             <version>5.5.0-RC2</version>
             <scope>test</scope>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.jmockit</groupId>-->
-<!--            <artifactId>jmockit</artifactId>-->
-<!--            <version>${jmockit.version}</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>com.testautomationguru.pdfutil</groupId>
+            <artifactId>pdf-util</artifactId>
+            <version>0.0.1</version>
+            <scope>test</scope>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-core -->
         <dependency>
             <groupId>ch.qos.logback</groupId>
