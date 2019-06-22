@@ -281,7 +281,7 @@ class MyPocketmodTest {
 //    }
 
     @Test
-    void testInputOutput() throws Exception {
+    protected void testInputOutput() throws Exception {
 
 
         final byte[] image1 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage1Filename()), 0, Configuration.Orientation.AUTO);
