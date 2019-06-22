@@ -120,9 +120,9 @@ public class MyPocketmod {
     /**
      * Quelle: https://stackoverflow.com/a/37758533/373498
      *
-     * @param img
-     * @param angle
-     * @return
+     * @param img Zu drehendes Bild
+     * @param angle Zu drehende Gradzahl im Uhrzeigersinn.
+     * @return gedrehtes Bild
      */
     public BufferedImage rotateImageByDegrees(BufferedImage img, double angle) {
 
