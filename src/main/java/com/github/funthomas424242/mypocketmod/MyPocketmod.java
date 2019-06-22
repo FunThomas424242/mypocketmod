@@ -127,8 +127,9 @@ public class MyPocketmod {
      */
     public BufferedImage rotateImageByDegrees(BufferedImage img, double angle) {
 
-        double rads = Math.toRadians(angle);
-        double sin = Math.abs(Math.sin(rads)), cos = Math.abs(Math.cos(rads));
+        final double rads = Math.toRadians(angle);
+        final double sin = Math.abs(Math.sin(rads));
+        final double cos = Math.abs(Math.cos(rads));
         int w = img.getWidth();
         int h = img.getHeight();
         int newWidth = (int) Math.floor(w * cos + h * sin);

@@ -34,13 +34,13 @@ class MyPocketmodGeneratorIntegrationTest {
     protected MyPocketmodGenerator generator;
 
     @BeforeEach
-    void setupTestfall() {
+    protected void setupTestfall() {
         generator = new MyPocketmodGenerator();
         Paths.get(".", "/generated/src/test/resources/").toFile().mkdirs();
     }
 
     @Test
-    void main() {
+    protected void main() {
         try {
             MyPocketmodGenerator.main(null);
         } catch (Exception e) {

@@ -86,7 +86,7 @@ public class Configuration implements Uninitialized {
         }
     }
 
-    final Properties configuration;
+    protected final Properties configuration;
 
     private Configuration() {
         configuration = new Properties();

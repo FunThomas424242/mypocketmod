@@ -35,7 +35,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MyPocketmodTest {
 
-    final static String IMAGE1_BASE64 = "/9j/4AAQSkZJRgABAgAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0a\n" +
+    private final static String IMAGE1_BASE64 = "/9j/4AAQSkZJRgABAgAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0a\n" +
             "HBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIy\n" +
             "MjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCANLAlQDASIA\n" +
             "AhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQA\n" +
@@ -254,18 +254,18 @@ class MyPocketmodTest {
             "CiiigAooooAKKKKAP//Z";
 
 
-    static Configuration configuration;
+    protected static Configuration configuration;
 
-    MyPocketmod app;
+    protected MyPocketmod app;
 
 
     @BeforeAll
-    static void setUpTestsuite() {
+    protected static void setUpTestsuite() {
         configuration = Configuration.createNewConfiguration().initialize();
     }
 
     @BeforeEach
-    void initialisiereTestfall() {
+    protected void initialisiereTestfall() {
         app = new MyPocketmod();
         Paths.get(".", "/generated/src/test/resources/").toFile().mkdirs();
     }
