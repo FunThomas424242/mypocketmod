@@ -270,16 +270,6 @@ class MyPocketmodTest {
         Paths.get(".", "/generated/src/test/resources/").toFile().mkdirs();
     }
 
-//    @Test
-//    void testRun() {
-//        try {
-//            app.run();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//            fail();
-//        }
-//    }
-
     @Test
     protected void testInputOutput() throws Exception {
 
