@@ -40,12 +40,22 @@ class MyPocketmodGeneratorIntegrationTest {
     }
 
     @Test
-    void run() {
+    void main() {
         try {
-            generator.run();
+            MyPocketmodGenerator.main(null);
         } catch (Exception e) {
             e.printStackTrace();
             fail();
         }
     }
+
+//    @Test
+//    void run() {
+//        try {
+//            generator.run();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            fail();
+//        }
+//    }
 }
