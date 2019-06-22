@@ -79,7 +79,7 @@ Unterstützung ist jederzeit erwünscht. Ein gelungener Einstieg sollte sich üb
 und Änderungen als Pull-Request einstellen, ergeben. Du kannst aber auch jederzeit gern ein Ticket öffnen
 unter: https://github.com/funthomas424242/mypocketmod/issues/new/choose[Ticket Erstellen].
 
-Dieses Projekt folgt den unter https://piugroup.github.io/mypocketmod/code-of-conduct.txt[Verhaltenskodex] abgelegten Verhaltensregeln.
+Dieses Projekt folgt den unter https://funthomas424242.github.io/mypocketmod/code-of-conduct.txt[Verhaltenskodex] abgelegten Verhaltensregeln.
 Welche auch unter https://www.contributor-covenant.org/de/version/1/4/code-of-conduct/[Verhaltenskodex für Unterstützer] veröffentlicht wurden.
 
 === Unterstützer
