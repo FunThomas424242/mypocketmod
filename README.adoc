@@ -66,6 +66,7 @@ Harte und rauhe Methode, welche aber immer gehen sollte
 * https://github.com/RichardLitt/generator-standard-readme/
 * https://github.com/noffle/art-of-readme
 * https://keepachangelog.com/de
+* http://boeffi.net/tutorials/local-mock-variables-ein-dritter-weg-in-jmockit/
 
 [#projektverantwortlicher]
 == Projektverantwortlicher
