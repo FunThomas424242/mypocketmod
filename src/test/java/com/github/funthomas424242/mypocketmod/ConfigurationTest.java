@@ -29,8 +29,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Properties;
+import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class ConfigurationTest {
@@ -41,14 +42,26 @@ public class ConfigurationTest {
     @Tested
     protected Configuration configuration;
 
-//    @BeforeEach
-//    void setUpTestfall() {
-//        configuration = Configuration.createNewConfiguration().initialize();
-//    }
+    @BeforeEach
+    void setUpTestfall() {
+        configuration = (Configuration) Configuration.createNewConfiguration();
+    }
+
+    @Test
+    void createNewConfigSetztKeineWerte() {
+        assertTrue(configuration.configuration.isEmpty());
+    }
 
     @Test
     void initializeSetztInitialWerte() {
-//        assertNull(configuration.getPocketmodOutputFilename());
+        assertTrue(configuration.configuration.isEmpty());
+
+        configuration.initialize();
+
+        assertFalse(configuration.configuration.isEmpty());
+        final Set<String> props = configuration.configuration.stringPropertyNames();
+        assertEquals(19, props.size());
+        assertEquals("generated/src/test/MyPocketmod.pdf", configuration.getPocketmodOutputFilename());
     }
 
 }
