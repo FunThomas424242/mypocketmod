@@ -22,8 +22,6 @@ package com.github.funthomas424242.mypocketmod;
  * #L%
  */
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class ImageHolderTest {
 
 }
