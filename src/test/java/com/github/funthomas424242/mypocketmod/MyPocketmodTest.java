@@ -27,15 +27,15 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
 import java.nio.file.Paths;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 
 class MyPocketmodTest {
 
-    final static String IMAGE1_BASE64 = "/9j/4AAQSkZJRgABAgAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0a\n" +
+    private final static String IMAGE1_BASE64 = "/9j/4AAQSkZJRgABAgAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0a\n" +
             "HBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIy\n" +
             "MjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCANLAlQDASIA\n" +
             "AhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQA\n" +
@@ -254,34 +254,24 @@ class MyPocketmodTest {
             "CiiigAooooAKKKKAP//Z";
 
 
-    static Configuration configuration;
+    protected static Configuration configuration;
 
-    MyPocketmod app;
+    protected MyPocketmod app;
 
 
     @BeforeAll
-    static void setUpTestsuite() {
+    protected static void setUpTestsuite() {
         configuration = Configuration.createNewConfiguration().initialize();
     }
 
     @BeforeEach
-    void initialisiereTestfall() {
+    protected void initialisiereTestfall() {
         app = new MyPocketmod();
         Paths.get(".", "/generated/src/test/resources/").toFile().mkdirs();
     }
 
     @Test
-    void testRun() {
-        try {
-            app.run();
-        } catch (IOException e) {
-            e.printStackTrace();
-            fail();
-        }
-    }
-
-    @Test
-    void testInputOutput() throws Exception {
+    protected void testInputOutput() throws Exception {
 
 
         final byte[] image1 = app.getPDFPageAsBytes(Paths.get(configuration.getPocketmodPage1Filename()), 0, Configuration.Orientation.AUTO);

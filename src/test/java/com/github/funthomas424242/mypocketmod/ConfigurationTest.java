@@ -35,17 +35,17 @@ public class ConfigurationTest {
     protected Configuration configuration;
 
     @BeforeEach
-    void setUpTestfall() {
+    protected void setUpTestfall() {
         configuration = (Configuration) Configuration.createNewConfiguration();
     }
 
     @Test
-    void createNewConfigSetztKeineWerte() {
+    protected void createNewConfigSetztKeineWerte() {
         assertTrue(configuration.configuration.isEmpty());
     }
 
     @Test
-    void initializeSetztInitialWerte() {
+    protected void initializeSetztInitialWerte() {
         assertTrue(configuration.configuration.isEmpty());
 
         configuration.initialize();

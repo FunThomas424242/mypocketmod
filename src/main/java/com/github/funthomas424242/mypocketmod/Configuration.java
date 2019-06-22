@@ -86,7 +86,7 @@ public class Configuration implements Uninitialized {
         }
     }
 
-    final Properties configuration;
+    protected final Properties configuration;
 
     private Configuration() {
         configuration = new Properties();
@@ -121,9 +121,8 @@ public class Configuration implements Uninitialized {
         final File configFile = Paths.get("./", "mypocketmod.config").toFile();
         if (!configFile.exists()) {
             configFile.getParentFile().mkdirs();
-            boolean created;
             try {
-                created = !configFile.createNewFile();
+                configFile.createNewFile();
             } catch (IOException e) {
                 e.printStackTrace();
                 System.out.println("Konfiguration mypocketmod.config konnte nicht erstellt werden");
