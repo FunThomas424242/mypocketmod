@@ -43,45 +43,46 @@ public class MyPocketmod {
 
     final protected Configuration configuration;
 
-    public static void main(String args[]) throws Exception {
-        final com.github.funthomas424242.mypocketmod.MyPocketmod app = new com.github.funthomas424242.mypocketmod.MyPocketmod();
-        app.run();
-    }
+//    public static void main(String args[]) throws Exception {
+//        final com.github.funthomas424242.mypocketmod.MyPocketmod app = new com.github.funthomas424242.mypocketmod.MyPocketmod();
+//        app.run();
+//    }
 
     public MyPocketmod() {
         configuration = Configuration.createNewConfiguration().initialize();
     }
+//
+//    public void run() throws IOException {
+//        final PDDocument pocketmodPdf = new PDDocument();
+//        pocketmodPdf.addPage(new PDPage());
+//
+//        //creating the PDPageContentStream object
+//        PDPageContentStream contents = new PDPageContentStream(pocketmodPdf, pocketmodPdf.getPage(0));
+//
+//        // Content befüllen
+//        final PDImageXObject seite1 = getPDFPageAsImage(pocketmodPdf, Paths.get(configuration.getPocketmodPage1Filename()));
+//        addImageToPage0(contents, seite1);
+//        final PDImageXObject seite2 = getPDFPageAsImage(pocketmodPdf, Paths.get(configuration.getPocketmodPage2Filename()));
+//        addImageToPage0(contents, seite2);
+//        final PDImageXObject seite3 = getPDFPageAsImage(pocketmodPdf, Paths.get(configuration.getPocketmodPage3Filename()));
+//        addImageToPage0(contents, seite3);
+//
+//        //Closing the PDPageContentStream object
+//        contents.close();
+//
+//
+//        //Saving the document
+//        pocketmodPdf.save(Paths.get(".", "/generated/src/test/resources/OutputPocketmod.pdf").toAbsolutePath().toString());
+//
+//        //Closing the document
+//        pocketmodPdf.close();
+//
+//    }
 
-    public void run() throws IOException {
-        final PDDocument pocketmodPdf = new PDDocument();
-        pocketmodPdf.addPage(new PDPage());
-
-        //creating the PDPageContentStream object
-        PDPageContentStream contents = new PDPageContentStream(pocketmodPdf, pocketmodPdf.getPage(0));
-
-        // Content befüllen
-        final PDImageXObject seite1 = getPDFPageAsImage(pocketmodPdf, Paths.get(configuration.getPocketmodPage1Filename()));
-        addImageToPage0(contents, seite1);
-        final PDImageXObject seite2 = getPDFPageAsImage(pocketmodPdf, Paths.get(configuration.getPocketmodPage2Filename()));
-        addImageToPage0(contents, seite2);
-        final PDImageXObject seite3 = getPDFPageAsImage(pocketmodPdf, Paths.get(configuration.getPocketmodPage3Filename()));
-        addImageToPage0(contents, seite3);
-
-        //Closing the PDPageContentStream object
-        contents.close();
-
-
-        //Saving the document
-        pocketmodPdf.save(Paths.get(".", "/generated/src/test/resources/OutputPocketmod.pdf").toAbsolutePath().toString());
-
-        //Closing the document
-        pocketmodPdf.close();
-
-    }
-
-    public byte[] getPDFPageAsBytes(final Path absoluteFilePath, final int timesQuadrantRotatePortrait, final Configuration.Orientation vorgabeOrientation) throws IOException {
+    protected byte[] getPDFPageAsBytes(final Path absoluteFilePath, final int timesQuadrantRotatePortrait, final Configuration.Orientation vorgabeOrientation) throws IOException {
         final PDDocument seite = loadPage(absoluteFilePath);
         final BufferedImage image = getPDFAsImage(seite);
+        seite.close();
 
 
         // Bestimmung Hoch oder Querformat
@@ -140,24 +141,23 @@ public class MyPocketmod {
 
         at.rotate(rads, x, y);
         AffineTransformOp rotationTransformOp = new AffineTransformOp(at, AffineTransformOp.TYPE_NEAREST_NEIGHBOR);
-        BufferedImage rotated = rotationTransformOp.filter(img, null);
-        return rotated;
+        return rotationTransformOp.filter(img, null);
     }
 
-    protected PDImageXObject getPDFPageAsImage(PDDocument pocketmodPdf, final Path fullFilePath) throws IOException {
-        final PDDocument seite = loadPage(fullFilePath);
-        final BufferedImage image = getPDFAsImage(seite);
-        final byte[] bytes = convertImage2Bytes(image);
-        final PDImageXObject pdImage = PDImageXObject.createFromByteArray(pocketmodPdf, bytes, fullFilePath.getFileName().toString());
-        System.out.println("Image created for page " + fullFilePath.toAbsolutePath().toString());
-        return pdImage;
-    }
+//    protected PDImageXObject getPDFPageAsImage(PDDocument pocketmodPdf, final Path fullFilePath) throws IOException {
+//        final PDDocument seite = loadPage(fullFilePath);
+//        final BufferedImage image = getPDFAsImage(seite);
+//        final byte[] bytes = convertImage2Bytes(image);
+//        final PDImageXObject pdImage = PDImageXObject.createFromByteArray(pocketmodPdf, bytes, fullFilePath.getFileName().toString());
+//        System.out.println("Image created for page " + fullFilePath.toAbsolutePath().toString());
+//        return pdImage;
+//    }
 
-    protected void addImageToPage0(PDPageContentStream contents, PDImageXObject pdImage) throws IOException {
-        //Drawing the image in the PDF document
-        contents.drawImage(pdImage, 1, 1);
-        System.out.println("Image inserted");
-    }
+//    protected void addImageToPage0(PDPageContentStream contents, PDImageXObject pdImage) throws IOException {
+//        //Drawing the image in the PDF document
+//        contents.drawImage(pdImage, 1, 1);
+//        System.out.println("Image inserted");
+//    }
 
     protected byte[] convertImage2Bytes(final BufferedImage image) throws IOException {
         final ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -174,9 +174,9 @@ public class MyPocketmod {
     }
 
 
-    protected PDDocument loadPage(final Path folder, String filePrefix, String fileExtension, int pageNum) throws IOException {
-        return loadPage(Paths.get(folder.toAbsolutePath().toString(), filePrefix + pageNum + "." + fileExtension));
-    }
+//    protected PDDocument loadPage(final Path folder, String filePrefix, String fileExtension, int pageNum) throws IOException {
+//        return loadPage(Paths.get(folder.toAbsolutePath().toString(), filePrefix + pageNum + "." + fileExtension));
+//    }
 
     protected PDDocument loadPage(final Path absoluteFilePath) throws IOException {
         //Loading page x
