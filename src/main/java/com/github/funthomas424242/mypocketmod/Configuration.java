@@ -63,7 +63,7 @@ public class Configuration implements Uninitialized {
     public static final String SEITE_6_PDF = "Seite6.pdf";
     public static final String SEITE_7_PDF = "Seite7.pdf";
     public static final String SEITE_8_PDF = "Seite8.pdf";
-    public static final String POCKETMODE_PDF = "mypocketmod.pdf";
+    public static final String POCKETMODE_PDF = "MyPocketmod.pdf";
 
 
     public enum Orientation {
