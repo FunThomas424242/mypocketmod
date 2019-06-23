@@ -1,6 +1,8 @@
 ifdef::env-github[]
-:sourcedir: src/site/resources/
+//:sourcedir: src/site/resources/
+//:imagedir: src/site/resources/
 endif::[]
+:siteresourcesdir: src/site/resources/
 
 [#status]
 image:https://img.shields.io/badge/License-LGPL%20v3-blue.svg[link="https://www.gnu.org/licenses/lgpl-3.0"]
@@ -13,15 +15,17 @@ image:http://images.webestools.com/buttons.php?frm=2&btn_type=11&txt=Scrum Board
 
 image:https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square["standard-readme compilant",link="https://github.com/RichardLitt/standard-readme"]
 
-= MyPocketmod
+:doctype: book
+:backend: html5
 :author: Huluvu424242 (alias FunThomas424242 alias Thomas Schubert)
-//:toc:
 :icons: font
 :lang: de
 :encoding: iso-8859-1
+= MyPocketmod
 
 Kommandozeilenprogramm welches 8 PDF Dokumente in eine PDF Seite konvertiert, die im http://pocketmod.com[Pocketmod Style] gefaltet werden kann.
 
+ifdef::env-github[]
 == Inhaltsverzeichnis
 
 - link:#hintergrund[Hintergrund]
@@ -31,6 +35,7 @@ Kommandozeilenprogramm welches 8 PDF Dokumente in eine PDF Seite konvertiert, di
 - link:#projektverantwortlicher[Projektverantwortlicher]
 - link:#unterstützung[Unterstützung]
 - link:#lizenz[Lizenz]
+endif::[]
 
 [#hintergrund]
 == Hintergrund
@@ -62,18 +67,7 @@ Harte und rauhe Methode, welche aber immer gehen sollte
 2. Im Projektverzeichnis 8 PDF Dokumente ablegen, welche bitte `Seite1.pdf`, `Seite2.pdf` bis `Seite8.pdf` benannt sind.
 3. Auf der Kommandozeile `java -jar <pfad zum JAR Archiv>` eingeben und mit Enter zur Ausführung bringen -> Es entsteht eine Konfigurationsdatei und eine PDF Datei welche das final Pocketmod enthält.
 
-[source,properties]
-.Beispiel einer Unix Konfigurationsdatei
-----
-include::{sourcedir}/mypocketmod.config[]
-----
-
-[source,properties]
-.Beispiel einer Windows Konfigurationsdatei[]
-----
-include::src/site/resources/mypocketmod.config[]
-----
-
+https://funthomas424242.github.io/mypocketmod/benutzer.html[Benutzerhandbuch]
 
 [#literatur]
 == Literatur und Quellen im Netz
@@ -91,6 +85,7 @@ include::src/site/resources/mypocketmod.config[]
 * https://keepachangelog.com/de
 * http://boeffi.net/tutorials/local-mock-variables-ein-dritter-weg-in-jmockit/
 * http://www.testautomationguru.com/introducing-pdfutil-to-compare-pdf-files-extract-resources/
+* https://gist.github.com/dcode/0cfbf2699a1fe9b46ff04c41721dda74
 
 [#projektverantwortlicher]
 == Projektverantwortlicher
