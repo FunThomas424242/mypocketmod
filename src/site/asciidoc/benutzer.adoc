@@ -1,7 +1,48 @@
 = MyPocketmod - Benutzerhandbuch
 
-Dieses Projekt stellt Annotationen nebst zugehörigen Annotation Prozessoren bereit. Sobald das ausgelieferte
-Projektarchiv (JAR) im Klassenpfad Ihrer Anwendung eingebunden ist, können Sie die Annotationen benutzen.
+Kommandozeilenprogramm welches 8 PDF Dokumente in eine PDF Seite konvertiert, die im http://pocketmod.com[Pocketmod Style] gefaltet werden kann.
+So werden die Seiten:
+
+//.TODOListe.pdf
+//[#todolistepdf]
+//[caption="TODOListe.pdf",link="TODOListe.pdf"]
+image:images/PDF-ODF_bildsimbolo_001.png[title="TODOListe.pdf",100,100,link="parts/TODOListe.pdf"]
+//.CodeReview.pdf
+//[#codereviewpdf]
+//[caption="CodeReview.pdf",link="CodeReview.pdf"]
+image:images/PDF-ODF_bildsimbolo_001.png[title="CodeReview.pdf",100,100,link="parts/CodeReview.pdf"]
+//.CodeSmells.pdf
+//[#codesmellspdf]
+//[caption="CodeSmells.pdf",link="CodeSmells.pdf"]
+image:images/PDF-ODF_bildsimbolo_001.png[title="CodeSmells.pdf",100,100,link="parts/CodeSmells.pdf"]
+//.Termine.pdf
+//[#terminepdf]
+//[caption="Termine.pdf",link="Termine.pdf"]
+image:images/PDF-ODF_bildsimbolo_001.png[title="Termine.pdf",100,100,link="parts/Termine.pdf"]
+//.EssenTrinken.pdf
+//[#essentrinkenpdf]
+//[caption="EssenTrinken.pdf",link="EssenTrinken.pdf"]
+image:images/PDF-ODF_bildsimbolo_001.png[title="EssenTrinken.pdf",100,100,link="parts/EssenTrinken.pdf"]
+//.Notizen.pdf
+//[#notizenpdf]
+//[caption="Notizen.pdf",link="Notizen.pdf"]
+image:images/PDF-ODF_bildsimbolo_001.png[title="Notizen.pdf",100,100,link="parts/Notizen.pdf"]
+//.Ausgaben.pdf
+//[#ausgabenpdf]
+//[caption="Ausgaben.pdf",link="Ausgaben.pdf"]
+image:images/PDF-ODF_bildsimbolo_001.png[title="Ausgaben.pdf",100,100,link="parts/Ausgaben.pdf"]
+//.SQLZugriff.pdf
+//[#sqlzugriffpdf]
+//[caption="SQLZugriff.pdf",link="SQLZugriff.pdf"]
+image:images/PDF-ODF_bildsimbolo_001.png[title="SQLZugriff.pdf",100,100,link="parts/SQLZugriff.pdf"]
+
+zu folgender Seite zusammengefügt:
+
+//.MyPocketmod.pdf
+//[#mypocketmodpdf]
+//[caption="MyPocketmod.pdf",,]
+image::images/PDF-ODF_bildsimbolo_001.png[title="MyPocketmod.pdf",100,100,link="MyPocketmod.pdf"]
+
 
 == Benutzung
 1. Konsole öffnen und ins "Projektverzeichnis" wechseln.

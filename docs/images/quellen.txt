@@ -1,0 +1,5 @@
+Quellen- und Lizenzangaben zu den Bildern:
+
+[PDF-ODF_bildsimbolo_001.png]
+* https://commons.wikimedia.org/wiki/File:PDF-ODF_bildsimbolo_001.png
+* LGPL 2.xx und folgende
