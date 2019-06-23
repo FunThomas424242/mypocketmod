@@ -6,7 +6,7 @@ Die Versionierung erfolgt nach http://semver.org/lang/de/[Semantic Versioning].
 
 // ## [3.1.1] fertiggestellt 2018-05-11
 
-## [unreleased]
+## [0.0.1] fertiggestellt 2019-06-23
 ### Added
 
 - https://github.com/FunThomas424242/mypocketmod/issues/3[issue #3] Seitenausrichtung automatisch und konfigurierbar aufgenommen.
