@@ -1,5 +1,5 @@
 ifdef::env-github[]
-:sourcedir: ./src/site/resources/
+:sourcedir:src/site/resources/
 endif::[]
 
 [#status]
@@ -59,7 +59,7 @@ Harte und rauhe Methode, welche aber immer gehen sollte
 [source,properties]
 .Beispiel einer Unix Konfigurationsdatei
 ----
-include::mypocketmod.config[]
+include::{sourcedir}/mypocketmod.config[]
 ----
 
 [source,properties]
