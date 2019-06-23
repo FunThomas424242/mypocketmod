@@ -120,5 +120,5 @@ This project exists thanks to all the people who contribute.
 [#lizenz]
 == Lizenz
 
-link:LICENSE[LGPL-3.0] image:images/Copyleft.svg[15,15] link:https://piug.slack.com<[PIUG]
+link:LICENSE[LGPL-3.0] image:https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Copyleft.svg/512px-Copyleft.svg.png[title="Zscout370, Sertion, e.a. [Public domain\], via Wikimedia Commons",15,15,link="https://commons.wikimedia.org/wiki/File:Copyleft.svg"] link:https://piug.slack.com<[PIUG]
 
