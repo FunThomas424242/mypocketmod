@@ -1,0 +1,6 @@
+= MyPocketmod - Entwicklerhandbuch
+
+demnächst (coming soon)
+
+Artefakt komplett bauen mit: `./mvnw clean install site`
+

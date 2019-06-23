@@ -21,7 +21,7 @@ image:https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style
 :icons: font
 :lang: de
 :encoding: iso-8859-1
-= MyPocketmod
+= MyPocketmod - Übersicht
 
 Kommandozeilenprogramm welches 8 PDF Dokumente in eine PDF Seite konvertiert, die im http://pocketmod.com[Pocketmod Style] gefaltet werden kann.
 
@@ -65,9 +65,9 @@ Harte und rauhe Methode, welche aber immer gehen sollte
 
 1. Konsole öffnen und ins "Projektverzeichnis" wechseln.
 2. Im Projektverzeichnis 8 PDF Dokumente ablegen, welche bitte `Seite1.pdf`, `Seite2.pdf` bis `Seite8.pdf` benannt sind.
-3. Auf der Kommandozeile `java -jar <pfad zum JAR Archiv>` eingeben und mit Enter zur Ausführung bringen -> Es entsteht eine Konfigurationsdatei und eine PDF Datei welche das final Pocketmod enthält.
+3. Auf der Kommandozeile `java -jar <pfad zum JAR Archiv>` eingeben und mit Enter zur Ausführung bringen -> Es entsteht eine Konfigurationsdatei und eine PDF Datei welche das finale Pocketmod enthält.
 
-https://funthomas424242.github.io/mypocketmod/benutzer.html[Benutzerhandbuch]
+Weitere Details bietet das https://funthomas424242.github.io/mypocketmod/benutzer.html[Benutzerhandbuch]
 
 [#literatur]
 == Literatur und Quellen im Netz
@@ -101,6 +101,8 @@ unter: https://github.com/funthomas424242/mypocketmod/issues/new/choose[Ticket E
 
 Dieses Projekt folgt den unter https://funthomas424242.github.io/mypocketmod/code-of-conduct.txt[Verhaltenskodex] abgelegten Verhaltensregeln.
 Welche auch unter https://www.contributor-covenant.org/de/version/1/4/code-of-conduct/[Verhaltenskodex für Unterstützer] veröffentlicht wurden.
+
+Weitere Details bietet das https://funthomas424242.github.io/mypocketmod/entwickler.html[Entwicklerhandbuch]
 
 === Unterstützer
 

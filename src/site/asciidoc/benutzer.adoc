@@ -1,0 +1,21 @@
+= MyPocketmod - Benutzerhandbuch
+
+Dieses Projekt stellt Annotationen nebst zugehörigen Annotation Prozessoren bereit. Sobald das ausgelieferte
+Projektarchiv (JAR) im Klassenpfad Ihrer Anwendung eingebunden ist, können Sie die Annotationen benutzen.
+
+== Benutzung
+1. Konsole öffnen und ins "Projektverzeichnis" wechseln.
+2. Im Projektverzeichnis 8 PDF Dokumente ablegen, welche bitte `Seite1.pdf`, `Seite2.pdf` bis `Seite8.pdf` benannt sind.
+3. Auf der Kommandozeile `java -jar <pfad zum JAR Archiv>` eingeben und mit Enter zur Ausführung bringen -> Es entsteht eine Konfigurationsdatei und eine PDF Datei welche das final Pocketmod enthält.
+
+[source,properties]
+.Beispiel einer Unix Konfigurationsdatei
+----
+include::../../../mypocketmod.config[]
+----
+
+[source,properties]
+.Beispiel einer Windows Konfigurationsdatei
+----
+include::../resources/mypocketmod.config[]
+----
