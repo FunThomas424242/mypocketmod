@@ -1,3 +1,7 @@
+ifdef::env-github[]
+:sourcedir: ./src/site/resources/
+endif::[]
+
 [#status]
 image:https://img.shields.io/badge/License-LGPL%20v3-blue.svg[link="https://www.gnu.org/licenses/lgpl-3.0"]
 image:https://maven-badges.herokuapp.com/maven-central/com.github.funthomas424242/mypocketmod/badge.svg?style=flat["Maven Central", link="https://maven-badges.herokuapp.com/maven-central/com.github.funthomas424242/mypocketmod"]
