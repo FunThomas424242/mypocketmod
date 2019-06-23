@@ -1,5 +1,5 @@
 ifdef::env-github[]
-:sourcedir:src/site/resources/
+:sourcedir: src/site/resources/
 endif::[]
 
 [#status]
