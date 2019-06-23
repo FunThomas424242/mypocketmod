@@ -343,11 +343,12 @@
                     <backend>html5</backend>
                     <asciidoc>
                         <attributes>
+                            <doctype>book</doctype>
                             <icons>font</icons>
                             <source-highlighter>coderay</source-highlighter>
                             <coderay-css>style</coderay-css>
                             <toc>left</toc>
-                            <!--<toclevels>2</toclevels>-->
+                            <toclevels>2</toclevels>
                         </attributes>
                     </asciidoc>
                 </configuration>
