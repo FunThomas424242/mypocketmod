@@ -42,7 +42,7 @@ Harte und rauhe Methode, welche aber immer gehen sollte
 
 1. Ein "Projektverzeichnis" anlegen.
 2. Prüfen, dass Java installiert ist (JRE muss ausreichen).
-3. Das MyPocketmod JAR Archiv welches auch alle Abhängigkeiten enthält herunterladen und im "Projekverzeichnis" ablegen
+3. Das MyPocketmod JAR Archiv welches auch alle Abhängigkeiten (z.B. mypocketmod-0.0.1-jar-with-dependencies.jar) enthält herunterladen und im "Projekverzeichnis" ablegen
 
 
 [#nutzung]
