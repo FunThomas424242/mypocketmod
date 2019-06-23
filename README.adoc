@@ -120,5 +120,5 @@ This project exists thanks to all the people who contribute.
 [#lizenz]
 == Lizenz
 
-link:LICENSE[LGPL-3.0] © link:https://github.com/FunThomas424242[Huluvu424242 (alias FunThomas424242)]
+link:LICENSE[LGPL-3.0] image:images/Copyleft.svg[15,15] link:https://piug.slack.com<[PIUG]
 
