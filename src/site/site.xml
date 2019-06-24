@@ -52,15 +52,17 @@
 
     <!--<url>http://maven.apache.org/skins/maven-fluido-skin</url>-->
 
-    <!--<bannerLeft>-->
-    <!--<name>${project.artifactId}</name>-->
-    <!--&lt;!&ndash;<src>http://maven.apache.org/images/apache-maven-project-2.png</src>&ndash;&gt;-->
-    <!--<href>https://github.com/FunThomas424242/rades-annotations</href>-->
-    <!--</bannerLeft>-->
+    <bannerRight>
+        <name>${project.artifactId}</name>
+        <src>images/SCN_0006.gif</src>
+        <href>https://funthomas424242.github.io/${project.artifactId}/index.html</href>
+        <width>100</width>
+        <height>100</height>
+    </bannerRight>
 
-    <!--<bannerRight>-->
+    <!--<bannerLeft>-->
     <!--<src>http://maven.apache.org/images/maven-logo-2.gif</src>-->
-    <!--</bannerRight>-->
+    <!--</bannerLeft>-->
 
     <body>
         <menu name="RADES Universum">
