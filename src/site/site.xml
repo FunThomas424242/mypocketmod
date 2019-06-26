@@ -54,7 +54,7 @@
 
     <bannerRight>
         <name>${project.artifactId}</name>
-        <src>images/SCN_0006.gif</src>
+        <src>images/SCN_0006-1280x640.gif</src>
         <href>https://funthomas424242.github.io/${project.artifactId}/index.html</href>
         <width>100</width>
         <height>100</height>
